@@ -9,4 +9,4 @@ chapter: true
 
 # Remote actions
 
-Discover what this Hugo theme is all about and the core-concepts behind it.
+Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.
