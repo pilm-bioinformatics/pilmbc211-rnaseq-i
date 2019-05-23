@@ -1,0 +1,38 @@
+baseURL = "/"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+
+title = "PILMBC103 Best practices on remote storage and computing systems"
+theme = "hugo-theme-learn"
+# themesdir = "../.."
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+
+[params]
+  # editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
+  description = "Materials for PILMBC103 course"
+  author = "Lorena Pantano"
+  themeVariant = "blue"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+[Languages.en]
+title = "Documentation for Hugo Learn Theme"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/pilm-bioinformatics/pilmbc103"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+url = "/credits"
+weight = 30
