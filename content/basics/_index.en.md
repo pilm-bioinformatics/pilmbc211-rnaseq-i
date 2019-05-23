@@ -9,4 +9,4 @@ chapter: true
 
 # Basics
 
-Discover what this Hugo theme is all about and the core-concepts behind it.
+Here, you will learn how to set up your computer to connect to remote resources and some tips that will make this task easier.
