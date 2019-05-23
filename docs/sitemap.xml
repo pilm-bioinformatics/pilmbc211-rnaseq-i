@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/requirements/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/credits/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

@@ -1,6 +1,7 @@
-baseURL = "/"
+baseURL = "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
+publishDir = "docs"
 
 title = "PILMBC103 Best practices on remote storage and computing systems"
 theme = "hugo-theme-learn"

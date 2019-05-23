@@ -1,0 +1,78 @@
+[
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/",
+	"title": "Basics",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 1 Basics Here, you will learn how to set up your computer to connect to remote resources and some tips that will make this task easier.\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/",
+	"title": "Remote actions",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 2 Remote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/requirements/",
+	"title": "Requirements",
+	"tags": [],
+	"description": "",
+	"content": " Requirements  Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ Have an editor for programming, install Atom: https://atom.io/ Install sshfs: MACOSX (download and install the two packages you see here: https://osxfuse.github.io/). LINUX (ubuntu, debian: sudo apt-get install sshfs) know what is a terminal or  make section 1 of this tutorial: Learn Enough Command Line to Be Dangerous | Learn Enough to Be Dangerous Navigating the Terminal: A Gentle Introduction - YouTube play this game done at MIT: Terminus  eofe5 credentials: If you don\u0026rsquo;t have one follow this link: https://engaging-web.mit.edu/request_account. Choose your PI names under Group droplist. You need to know your user name and the eofe-key file that you get after completion of your account.  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/",
+	"title": "Set up",
+	"tags": [],
+	"description": "",
+	"content": " set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favourite text plain editor.  setup your credentials Look for the eofe-key file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:\ncp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.\nCheck the file permision: ll ~/.ssh/eofe-key\nIt should show something like this: -rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key\nIf not, type this:\nchmod 600 ~/.ssh/eofe-key\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost mit # alias Hostname eofe5.mit.edu # full hostname User lpantano IdentityFile ~/.ssh/eofe-key  This will do that you can connect to that space just by doing ssh mit and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/eofe-key # type the passphrase you used when registering your account  Test your connection Now is the time to try and connect:\nssh mit\n You need to get this working to move forward.\n Create working folder mkdir work_lpantano\n change the user name to match yours\n "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/",
+	"title": "Permanent connection",
+	"tags": [],
+	"description": "",
+	"content": " tricks to use sessions inside teminal: tmux Lern more about tmux, but basically is a way to leave alive your terminal environment in a remote computer.\nFor instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.\nCommunication with tmux is by the use of two keys in the keyboard: Ctrl + b. That is called the prefix, and is the trigger to get tmux listen to what you want to do next: for instance create a new windows, or change between windows, etc\u0026hellip;\nWhen you are in the remote computer, type:\ntmux new -s s1  Then create another window:\nprefix + c  Name windows:\nprefix + ,  Now type other and press Enter\nMove to among windows:\nprefix + 0 prefix + 1  detach the session and come back:\nprefix + d tmux a -t s1  Disconnect from the computer and come back:\nctrl + d ssh mit tmux -a -t s1  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/",
+	"title": "File transfer",
+	"tags": [],
+	"description": "",
+	"content": " mount the server  Open a new terminal.  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs commmand (See requirements to know how to install it).\nmkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:\nls ~/mnts/mit\nrsync command This is the best tool to use to transfer files. The main advantages:\n include only some files exclude some files copy the file metadata dry-run: you can check what is going to do it checks the file content  The basic command is:\nrsync [options] origin target\nNormally origin or target is a local folder or a remote computer.\ntest file  Open a new terminal  Download the following file:\ncd ~/Downloads mkdir work \u0026amp;\u0026amp; cd work curl -L https://github.com/nf-core/test-datasets/raw/smrnaseq/testdata/sample_1.fastq.gz -o sample.fastq.gz cd ..  data in/out In this case, we will copy from our local computer to the MIT storage cluster.\nrsync -avn work/sample.fastq.gz mit:~/work_lpantano\nOptions explained:\n a: all files, keeping owner, timestamp, recursive v: verbose on, to know what files are being copying P: progess n: dry-run, so there is no copy action  Alternatives:\n full folder: rsync -avn work mit:~/work_lpantano full folder ignoring that folder: rsync -avn work/ mit:~/work_lpantano/  If what we see makes sense, then we repeat it without the -n option. We can add -P to see the progress of the transfer.\nrsync -avP work mit:~/work_lpantano\nMove to the terminal where you did the first connection to the server and check if you see the file now in your home directory.\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/",
+	"title": "Usage of cluster",
+	"tags": [],
+	"description": "",
+	"content": " most used commands on a cluster Full tutorial to learn hpc\n login node computing node  interactive jobs srun --time=0:15:00 --mem=200 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like node235\n md5sum work_*/work/*gz\nctrl-d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:5:00 --mem=200 --partition=sched_any md5sum work_lpantano/work/sample.fastq.gz  Batch jobs Download the script from here: gist of the file.\nhttps://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=tobias.jakobi@med.uni-heidelberg.de # this line is commented sleep 60 # wait 60 seconds md5sum work_lpantano/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u lpantano  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/credits/",
+	"title": "Credits",
+	"tags": [],
+	"description": "",
+	"content": " Contributors Thanks to them  for making Open Source Software a better place !\n.ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start }\n.ghContributors \u0026gt; div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors \u0026gt; div label{ padding-left: 4px ; } .ghContributors \u0026gt; div span{ font-size: x-small; padding-left: 4px ; }\n  @matcornic 149 commits \n @matalo33 37 commits \n @lierdakil 16 commits \n @gwleclerc 13 commits \n @mdavids 10 commits \n @coliff 9 commits \n @ozobi 5 commits \n @Xipas 5 commits \n @pdelaby 4 commits \n @Chris-Greaves 3 commits \n @mreithub 3 commits \n @massimeddu 3 commits \n @willwade 3 commits \n @denisvm 2 commits \n @gpospelov 2 commits \n @tanzaho 2 commits \n @wikijm 2 commits \n @lfalin 2 commits \n @alexvargasbenamburg 1 commits \n @afs2015 1 commits \n @arifpedia 1 commits \n @MrMoio 1 commits \n @ChrisLasar 1 commits \n @IEvangelist 1 commits \n @giuliov 1 commits \n @haitch 1 commits \n @ImgBotApp 1 commits \n @RealOrangeOne 1 commits \n @JohnBlood 1 commits \n @kamilchm 1 commits \n @lloydbenson 1 commits \n @sykesm 1 commits \n @654wak654 1 commits \n @PierreAdam 1 commits \n @ripienaar 1 commits \n @EnigmaCurry 1 commits \n @taiidani 1 commits \n @exKAZUu 1 commits \n @shelane 1 commits \n @tedyoung 1 commits \n @Thiht 1 commits \n @editicalu 1 commits \n @fossabot 1 commits \n @kamar535 1 commits \n @nonumeros 1 commits \n @pgorod 1 commits \n @proelbtn 1 commits \n\nAnd a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.\nPackages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  Tooling  Netlify - Continuous deployement and hosting of this documentation Hugo  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/",
+	"title": "PILMBC103 Best practices on remote storage and computing systems",
+	"tags": [],
+	"description": "",
+	"content": " Requirements  Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ Have an editor for programming, install Atom: https://atom.io/ Install sshfs: MACOSX (download and install the two packages you see here: https://osxfuse.github.io/). LINUX (ubuntu, debian: sudo apt-get install sshfs) know what is a terminal or  make section 1 of this tutorial: Learn Enough Command Line to Be Dangerous | Learn Enough to Be Dangerous Navigating the Terminal: A Gentle Introduction - YouTube play this game done at MIT: Terminus  eofe5 credentials: If you don\u0026rsquo;t have one follow this link: https://engaging-web.mit.edu/request_account. Choose your PI names under Group droplist. You need to know your user name and the eofe-key file that you get after completion of your account.  Goal  connect to a remote server to transfer data securely: eofe5 connect to a cluster and keep the session alive: eofe5 transfer data learn how to send jobs to the queue learn how to start interactive jobs to test quick scripts or test data  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
