@@ -15,7 +15,7 @@ Look for the `eofe-key` file. Normally is good to save it inside the `~.ssh/` fo
 
 `cp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.`
 
-Check the file permision: `ll ~/.ssh/eofe-key`
+Check the file permission: `ll ~/.ssh/eofe-key`
 
 It should show something like this: `-rw-------@ 1 lpantano  staff   1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key`
 
