@@ -6,7 +6,7 @@ disableToc: true
 
 ## tricks to use sessions inside teminal: tmux 
 
-Lern more about [tmux](https://thoughtbot.com/blog/a-tmux-crash-course), but basically is a way to leave alive your terminal environment in a remote computer.
+Learn more about [tmux](https://thoughtbot.com/blog/a-tmux-crash-course), but basically is a way to leave alive your terminal environment in a remote computer.
 
 For instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.
 

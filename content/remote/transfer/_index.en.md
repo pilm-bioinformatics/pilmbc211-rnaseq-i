@@ -8,7 +8,7 @@ disableToc: false
 
 * Open a new terminal.
 
-A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the `sshfs` commmand (See requirements to know how to install it).
+A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the `sshfs` command (See requirements to know how to install it).
 
 ```
 mkdir -p ~/mnts/mit
@@ -52,7 +52,7 @@ cd ..
 
 In this case, we will copy from our local computer to the MIT storage cluster.
 
-`rsync -avn work/sample.fastq.gz mit:~/work_lpantano`
+`rsync -avn work/sample.fastq.gz mit:~/pilm103`
 
 Options explained:
 
@@ -63,12 +63,12 @@ Options explained:
 
 Alternatives:
 
-* full folder: `rsync -avn work mit:~/work_lpantano`
-* full folder ignoring that folder: `rsync -avn work/ mit:~/work_lpantano/`
+* full folder: `rsync -avn work mit:~/pilm103`
+* full folder ignoring that folder: `rsync -avn work/ mit:~/pilm103`
 
 If what we see makes sense, then we repeat it without the `-n` option. We can add `-P` to see the progress of the transfer.
 
-`rsync -avP work mit:~/work_lpantano`
+`rsync -avP work mit:~/pilm103`
 
 Move to the terminal where you did the first connection to the server and check if you see the file now in your home directory.
 

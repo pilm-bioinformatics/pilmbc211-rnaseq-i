@@ -17,23 +17,23 @@ Full tutorial to learn [hpc](https://epcced.github.io/hpc-intro/010-hpc-concepts
 srun --time=0:15:00 --mem=200  --pty --partition=sched_any /bin/bash
 ```
 
-> Notice how the computer names has change to something like `node235`
+> Notice how the computer names has change to something like `nodeXXX`
 
-`md5sum work_*/work/*gz`
+`md5sum pilm103/work/*gz`
 
 `ctrl-d` to exit from the computing node.
 
 Exercise: send md5sum to interactive
 
 ```
-srun --time=0:5:00 --mem=200 --partition=sched_any md5sum work_lpantano/work/sample.fastq.gz
+srun --time=0:5:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
 ```
 
 ### Batch jobs
 
-Download the script from here: `gist of the file`. 
+Download the [script](https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm) from here: 
 
-`https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm`
+`wget https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm`
 
 It looks like that:
 
@@ -42,14 +42,15 @@ It looks like that:
 #SBATCH -N 1
 #SBATCH -c 1
 #SBATCH --mem=200
+#SBATCH -t 00:15:00
 #SBATCH -J "init"
 #SBATCH -e run.e
 #SBATCH -o run.o
 ## SBATCH --mail-type=END,FAIL # this line is commented
-## SBATCH --mail-user=tobias.jakobi@med.uni-heidelberg.de  # this line is commented
+## SBATCH --mail-user=you@mit.edu  # this line is commented
 
 sleep 60 # wait 60 seconds
-md5sum work_lpantano/work/sample.fastq.gz
+md5sum pilm103/work/sample.fastq.gz
 ```
 
 You can check that by typing `cat run_test.slurm`.
@@ -64,4 +65,30 @@ sbatch run_test.slurm
 
 ```
 squeue -u lpantano
+```
+
+
+## OpenMind cluster
+
+### Interactive Jobs
+
+```
+srun --time=0:15:00 --mem=2000  --pty  /bin/bash
+```
+
+### Batch Jobs
+
+```
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -c 1
+#SBATCH --mem=200
+#SBATCH -t 24:00:00
+#SBATCH -J "init"
+#SBATCH -e run.e
+#SBATCH -o run.o
+## SBATCH --mail-type=END,FAIL # this line is commented
+## SBATCH --mail-user=you@mit.edu  # this line is commented
+
+sleep 60 # wait 60 seconds
 ```
