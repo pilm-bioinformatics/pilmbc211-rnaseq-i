@@ -27,6 +27,11 @@ title = "Documentation for Hugo Learn Theme"
 weight = 1
 languageName = "English"
 
+[[menu.shortcuts]]
+name = "<i class='fas fa-tags'></i> Tags"
+url = "/tags"
+weight = 30
+
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-fw fa-github'></i> Github repo"
 identifier = "ds"

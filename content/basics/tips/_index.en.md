@@ -2,6 +2,7 @@
 title: Permanent connection
 weight: 15
 disableToc: true
+tags: ["ssh", "terminal"] 
 ---
 
 ## tricks to use sessions inside teminal: tmux 

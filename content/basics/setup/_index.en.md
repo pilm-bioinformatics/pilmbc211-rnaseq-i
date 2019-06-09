@@ -2,6 +2,7 @@
 title: Set up
 weight: 10
 disableToc: true
+tags: ["ssh", "rsa", "connection"] 
 ---
 
 ## set up environment
@@ -19,6 +20,7 @@ disableToc: true
 Look for the `eofe-key` file. Normally is good to save it inside the `~.ssh/` folder so it is private. Copy the file to that location:
 
 `mkdir -p ~/.ssh`
+
 `cp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.`
 
 Check the file permission: `ll ~/.ssh/eofe-key`
@@ -41,6 +43,10 @@ IdentityFile ~/.ssh/eofe-key
 UseKeychain yes # only macosx users
 ```
 
+{{% notice info %}}
+change the username to yours
+{{% /notice %}}
+
 This will do that you can connect to that space just by doing `ssh mit` and if you are on:
 
 * mac OSX: you will be asked for the password once and it'll save it until you restart your computer
@@ -58,10 +64,11 @@ Now is the time to try and connect:
 
 `ssh mit`
 
-> You need to get this working to move forward.
+
+{{% notice warning %}}
+You need to get this working to move forward
+{{% /notice %}}
 
 ### Create working folder
 
 `mkdir pilm103` 
-
-> change the user name to match yours

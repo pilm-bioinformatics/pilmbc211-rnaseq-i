@@ -2,6 +2,7 @@
 title: Usage of cluster
 weight: 25
 disableToc: false
+tags: ["slurm", "cluster"] 
 ---
 
 ## most used commands on a cluster
@@ -14,7 +15,7 @@ Full tutorial to learn [hpc](https://epcced.github.io/hpc-intro/010-hpc-concepts
 ### interactive jobs
 
 ```
-srun --time=0:15:00 --mem=200  --pty --partition=sched_any /bin/bash
+srun --time=0:1:00 --mem=200  --pty --partition=sched_any /bin/bash
 ```
 
 > Notice how the computer names has change to something like `nodeXXX`
@@ -26,7 +27,7 @@ srun --time=0:15:00 --mem=200  --pty --partition=sched_any /bin/bash
 Exercise: send md5sum to interactive
 
 ```
-srun --time=0:5:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
+srun --time=0:1:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
 ```
 
 ### Batch jobs
@@ -42,7 +43,7 @@ It looks like that:
 #SBATCH -N 1
 #SBATCH -c 1
 #SBATCH --mem=200
-#SBATCH -t 00:15:00
+#SBATCH -t 00:1:00
 #SBATCH -J "init"
 #SBATCH -e run.e
 #SBATCH -o run.o
@@ -64,11 +65,17 @@ sbatch run_test.slurm
 ### Check your jobs:
 
 ```
-squeue -u lpantano
+squeue -u USERNAME
 ```
 
+### Check you past jobs
+
+```bash
+ sacct -j $JOBID --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist
+```
 
 ## OpenMind cluster
+
 
 ### Interactive Jobs
 

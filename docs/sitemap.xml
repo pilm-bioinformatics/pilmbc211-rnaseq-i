@@ -19,7 +19,15 @@
   </url>
   
   <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/</loc>
+  </url>
+  
+  <url>
     <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/</loc>
   </url>
   
   <url>
@@ -27,7 +35,15 @@
   </url>
   
   <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/transfer/</loc>
+  </url>
+  
+  <url>
     <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/cluster/</loc>
   </url>
   
   <url>
@@ -45,6 +61,46 @@
   
   <url>
     <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/cluster/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/connection/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsa/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsync/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/slurm/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/transfer/</loc>
     <priority>0</priority>
   </url>
   

@@ -2,6 +2,7 @@
 title: File transfer
 weight: 20
 disableToc: false
+tags: ["ssh", "rsync", "transfer"] 
 ---
 
 ## mount the server

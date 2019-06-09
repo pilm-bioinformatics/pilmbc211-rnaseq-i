@@ -21,3 +21,10 @@ graph LR;
     E -->|job1| F[compute node 1]
     E -->|job2| G[compute node 2]
 ```
+
+How you jobs get schedule:
+
+- According to the requested resources/ available resources
+- According your **Fairshare** score:
+  - number of jobs/resources requested in the past
+  - precision of the resources requested vs needed

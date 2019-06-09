@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal on Documentation for Hugo Learn Theme</title>
+    <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/</link>
+    <description>Recent content in terminal on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Permanent connection</title>
+      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</guid>
+      <description>tricks to use sessions inside teminal: tmux Learn more about tmux, but basically is a way to leave alive your terminal environment in a remote computer.
+For instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.</description>
+    </item>
+    
+  </channel>
+</rss>

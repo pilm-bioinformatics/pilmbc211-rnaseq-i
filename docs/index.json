@@ -11,7 +11,7 @@
 	"title": "Remote actions",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 2 Remote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Server-login node] D --\u0026gt; E[Server-login node] E --\u0026gt;|job1| F[compute node 1] E --\u0026gt;|job2| G[compute node 2]  "
+	"content": " Chapter 2 Remote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Server-login node] D --\u0026gt; E[Server-login node] E --\u0026gt;|job1| F[compute node 1] E --\u0026gt;|job2| G[compute node 2]  How you jobs get schedule:\n According to the requested resources/ available resources According your Fairshare score:  number of jobs/resources requested in the past precision of the resources requested vs needed   "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/requirements/",
@@ -23,19 +23,40 @@
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/",
 	"title": "Set up",
-	"tags": [],
+	"tags": ["ssh", "rsa", "connection"],
 	"description": "",
-	"content": " set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite text plain editor.  How to connect to servers  password encrypted key files: how to create your own keys  setup your credentials Look for the eofe-key file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:\nmkdir -p ~/.ssh cp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.\nCheck the file permission: ll ~/.ssh/eofe-key\nIt should show something like this:\n-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key\nIf not, type this:\nchmod 600 ~/.ssh/eofe-key\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor if you don\u0026rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost mit # alias Hostname eofe5.mit.edu # full hostname User lpantano IdentityFile ~/.ssh/eofe-key UseKeychain yes # only macosx users  This will do that you can connect to that space just by doing ssh mit and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/eofe-key # type the passphrase you used when registering your account  Test your connection Now is the time to try and connect:\nssh mit\n You need to get this working to move forward.\n Create working folder mkdir pilm103\n change the user name to match yours\n "
+	"content": " set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite text plain editor.  How to connect to servers  password encrypted key files: how to create your own keys  setup your credentials Look for the eofe-key file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:\nmkdir -p ~/.ssh\ncp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.\nCheck the file permission: ll ~/.ssh/eofe-key\nIt should show something like this:\n-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key\nIf not, type this:\nchmod 600 ~/.ssh/eofe-key\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor if you don\u0026rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost mit # alias Hostname eofe5.mit.edu # full hostname User lpantano IdentityFile ~/.ssh/eofe-key UseKeychain yes # only macosx users   change the username to yours  This will do that you can connect to that space just by doing ssh mit and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/eofe-key # type the passphrase you used when registering your account  Test your connection Now is the time to try and connect:\nssh mit\n You need to get this working to move forward  Create working folder mkdir pilm103\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/",
+	"title": "Set up",
+	"tags": ["ssh", "rsa", "connection"],
+	"description": "",
+	"content": " setup your credentials Get the credential files cd wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa  Look for the pilm03_rsa file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:\nmkdir -p ~/.ssh\ncp pilm103_rsa ~/.ssh/.\nCheck the file permission: ll ~/.ssh/pilm103_rsa\nIt should show something like this:\n-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/pilm103_rsa\nIf not, type this:\nchmod 600 ~/.ssh/pilm103_rsa\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor if you don\u0026rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost pilm03 # alias Hostname bioinfopilm.mit.edu # full hostname User lpantano IdentityFile ~/.ssh/pilm103_rsa UseKeychain yes # only macosx users   change the username to the one given to you  This will do that you can connect to that space just by doing ssh pilm03 and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  Test your connection Now is the time to try and connect:\nssh pilm03\n You need to get this working to move forward.  Create working folder mkdir pilm103\n"
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/",
 	"title": "Permanent connection",
-	"tags": [],
+	"tags": ["ssh", "terminal"],
 	"description": "",
 	"content": " tricks to use sessions inside teminal: tmux Learn more about tmux, but basically is a way to leave alive your terminal environment in a remote computer.\nFor instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.\nCommunication with tmux is by the use of two keys in the keyboard: Ctrl + b. That is called the prefix, and is the trigger to get tmux listen to what you want to do next: for instance create a new windows, or change between windows, etc\u0026hellip;\nWhen you are in the remote computer, type:\ntmux new -s s1  Then create another window:\nprefix + c  Name windows:\nprefix + ,  Now type other and press Enter\nMove to among windows:\nprefix + 0 prefix + 1  detach the session and come back:\nprefix + d tmux a -t s1  Disconnect from the computer and come back:\nctrl + d ssh mit tmux -a -t s1  "
 },
 {
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/",
+	"title": "Remote actions __demo__",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 3 This chapter is in case the main server is not working so we need to use a local tiny remote resource to go through the materials.\nDownload the key to get access.\ncd wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa  Every student will have a user name given during the lecture.\nRemote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Server-login node] D --\u0026gt; E[Server-login node] E --\u0026gt;|job1| F[compute node 1] E --\u0026gt;|job2| G[compute node 2]  How you jobs get schedule:\n According to the requested resources/ available resources According your Fairshare score:  number of jobs/resources requested in the past precision of the resources requested vs needed   "
+},
+{
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/",
+	"title": "File transfer",
+	"tags": ["ssh", "rsync", "transfer"],
+	"description": "",
+	"content": " mount the server  Open a new terminal.  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).\nmkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:\nls ~/mnts/mit\nrsync command This is the best tool to use to transfer files. The main advantages:\n include only some files exclude some files copy the file metadata dry-run: you can check what is going to do it checks the file content  The basic command is:\nrsync [options] origin target\nNormally origin or target is a local folder or a remote computer.\ntest file  Open a new terminal  Download the following file:\ncd ~/Downloads mkdir work \u0026amp;\u0026amp; cd work curl -L https://github.com/nf-core/test-datasets/raw/smrnaseq/testdata/sample_1.fastq.gz -o sample.fastq.gz cd ..  data in/out In this case, we will copy from our local computer to the MIT storage cluster.\nrsync -avn work/sample.fastq.gz mit:~/pilm103\nOptions explained:\n a: all files, keeping owner, timestamp, recursive v: verbose on, to know what files are being copying P: progess n: dry-run, so there is no copy action  Alternatives:\n full folder: rsync -avn work mit:~/pilm103 full folder ignoring that folder: rsync -avn work/ mit:~/pilm103  If what we see makes sense, then we repeat it without the -n option. We can add -P to see the progress of the transfer.\nrsync -avP work mit:~/pilm103\nMove to the terminal where you did the first connection to the server and check if you see the file now in your home directory.\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/transfer/",
 	"title": "File transfer",
 	"tags": [],
 	"description": "",
@@ -44,9 +65,16 @@
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/",
 	"title": "Usage of cluster",
-	"tags": [],
+	"tags": ["slurm", "cluster"],
 	"description": "",
-	"content": " most used commands on a cluster Full tutorial to learn hpc\n login node computing node  interactive jobs srun --time=0:15:00 --mem=200 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like nodeXXX\n md5sum pilm103/work/*gz\nctrl-d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:5:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz  Batch jobs Download the script from here:\nwget https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 00:15:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds md5sum pilm103/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u lpantano  OpenMind cluster Interactive Jobs srun --time=0:15:00 --mem=2000 --pty /bin/bash  Batch Jobs #!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 24:00:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds  "
+	"content": " most used commands on a cluster Full tutorial to learn hpc\n login node computing node  interactive jobs srun --time=0:1:00 --mem=200 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like nodeXXX\n md5sum pilm103/work/*gz\nctrl-d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:1:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz  Batch jobs Download the script from here:\nwget https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 00:1:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds md5sum pilm103/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u USERNAME  Check you past jobs sacct -j $JOBID --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist  OpenMind cluster Interactive Jobs srun --time=0:15:00 --mem=2000 --pty /bin/bash  Batch Jobs #!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 24:00:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/cluster/",
+	"title": "Usage of cluster",
+	"tags": ["cluster", "slurm"],
+	"description": "",
+	"content": " most used commands on a cluster Full tutorial to learn hpc\n login node computing node  interactive jobs srun --time=0:15:00 --mem=200 --pty /bin/bash   Notice how the computer names has change to something like `nodeXXX`  md5sum pilm103/work/*gz\nctrl-d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:5:00 --mem=200 md5sum pilm103/work/sample.fastq.gz  Batch jobs Download the script from here:\nwget https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 00:1:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds md5sum pilm103/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u lpantano  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/categories/",
@@ -60,7 +88,7 @@
 	"title": "Credits",
 	"tags": [],
 	"description": "",
-	"content": " Contributors Thanks to them  for making Open Source Software a better place !\n.ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start }\n.ghContributors \u0026gt; div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors \u0026gt; div label{ padding-left: 4px ; } .ghContributors \u0026gt; div span{ font-size: x-small; padding-left: 4px ; }\n  @matcornic 150 commits \n @matalo33 37 commits \n @lierdakil 16 commits \n @gwleclerc 13 commits \n @coliff 12 commits \n @mdavids 10 commits \n @ozobi 5 commits \n @Xipas 5 commits \n @pdelaby 4 commits \n @Chris-Greaves 3 commits \n @mreithub 3 commits \n @massimeddu 3 commits \n @willwade 3 commits \n @denisvm 2 commits \n @gpospelov 2 commits \n @tanzaho 2 commits \n @wikijm 2 commits \n @lfalin 2 commits \n @alexvargasbenamburg 1 commits \n @afs2015 1 commits \n @arifpedia 1 commits \n @MrMoio 1 commits \n @ChrisLasar 1 commits \n @giuliov 1 commits \n @haitch 1 commits \n @ImgBotApp 1 commits \n @RealOrangeOne 1 commits \n @JohnBlood 1 commits \n @kamilchm 1 commits \n @lloydbenson 1 commits \n @sykesm 1 commits \n @nvasudevan 1 commits \n @654wak654 1 commits \n @PierreAdam 1 commits \n @ripienaar 1 commits \n @EnigmaCurry 1 commits \n @taiidani 1 commits \n @exKAZUu 1 commits \n @shelane 1 commits \n @tedyoung 1 commits \n @Thiht 1 commits \n @editicalu 1 commits \n @fossabot 1 commits \n @kamar535 1 commits \n @nonumeros 1 commits \n @pgorod 1 commits \n @proelbtn 1 commits \n\nAnd a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.\nPackages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  Tooling  Netlify - Continuous deployement and hosting of this documentation Hugo  "
+	"content": " Contributors Thanks to them  for making Open Source Software a better place !\n.ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start }\n.ghContributors \u0026gt; div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors \u0026gt; div label{ padding-left: 4px ; } .ghContributors \u0026gt; div span{ font-size: x-small; padding-left: 4px ; }\n  @matcornic 152 commits \n @matalo33 37 commits \n @lierdakil 16 commits \n @coliff 13 commits \n @gwleclerc 13 commits \n @mdavids 10 commits \n @ozobi 5 commits \n @Xipas 5 commits \n @pdelaby 4 commits \n @Chris-Greaves 3 commits \n @mreithub 3 commits \n @massimeddu 3 commits \n @willwade 3 commits \n @denisvm 2 commits \n @gpospelov 2 commits \n @tanzaho 2 commits \n @wikijm 2 commits \n @lfalin 2 commits \n @alexvargasbenamburg 1 commits \n @afs2015 1 commits \n @arifpedia 1 commits \n @berryp 1 commits \n @MrMoio 1 commits \n @ChrisLasar 1 commits \n @giuliov 1 commits \n @haitch 1 commits \n @ImgBotApp 1 commits \n @RealOrangeOne 1 commits \n @JohnBlood 1 commits \n @kamilchm 1 commits \n @lloydbenson 1 commits \n @sykesm 1 commits \n @nvasudevan 1 commits \n @654wak654 1 commits \n @PierreAdam 1 commits \n @ripienaar 1 commits \n @EnigmaCurry 1 commits \n @taiidani 1 commits \n @exKAZUu 1 commits \n @shelane 1 commits \n @tedyoung 1 commits \n @Thiht 1 commits \n @editicalu 1 commits \n @fossabot 1 commits \n @kamar535 1 commits \n @nonumeros 1 commits \n @pgorod 1 commits \n @proelbtn 1 commits \n\nAnd a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.\nPackages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  Tooling  Netlify - Continuous deployement and hosting of this documentation Hugo  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/",
@@ -72,6 +100,62 @@
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/cluster/",
+	"title": "cluster",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/connection/",
+	"title": "connection",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsa/",
+	"title": "rsa",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsync/",
+	"title": "rsync",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/slurm/",
+	"title": "slurm",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/",
+	"title": "ssh",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/",
+	"title": "terminal",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/transfer/",
+	"title": "transfer",
 	"tags": [],
 	"description": "",
 	"content": ""

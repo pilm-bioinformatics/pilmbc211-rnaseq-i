@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Documentation for Hugo Learn Theme</title>
+    <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/</link>
+    <description>Recent content in ssh on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Set up</title>
+      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/</guid>
+      <description>set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite text plain editor.  How to connect to servers  password encrypted key files: how to create your own keys  setup your credentials Look for the eofe-key file. Normally is good to save it inside the ~.ssh/ folder so it is private.</description>
+    </item>
+    
+    <item>
+      <title>Set up</title>
+      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/</guid>
+      <description>setup your credentials Get the credential files cd wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa  Look for the pilm03_rsa file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:
+mkdir -p ~/.ssh
+cp pilm103_rsa ~/.ssh/.
+Check the file permission: ll ~/.ssh/pilm103_rsa
+It should show something like this:
+-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/pilm103_rsa
+If not, type this:
+chmod 600 ~/.</description>
+    </item>
+    
+    <item>
+      <title>Permanent connection</title>
+      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/</guid>
+      <description>tricks to use sessions inside teminal: tmux Learn more about tmux, but basically is a way to leave alive your terminal environment in a remote computer.
+For instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.</description>
+    </item>
+    
+    <item>
+      <title>File transfer</title>
+      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/</guid>
+      <description>mount the server  Open a new terminal.  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).
+mkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:
+ls ~/mnts/mit
+rsync command This is the best tool to use to transfer files.</description>
+    </item>
+    
+  </channel>
+</rss>
