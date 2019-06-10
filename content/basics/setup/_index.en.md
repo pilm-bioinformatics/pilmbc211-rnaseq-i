@@ -5,32 +5,35 @@ disableToc: true
 tags: ["ssh", "rsa", "connection"] 
 ---
 
-## set up environment
+## Set up environment
 
 * Open a terminal: You need to know about these commands: `ls` , `cd folder`, `cd ..`,  `ctrl+d`
-* Open your editor: Atom or your favorite text plain editor.
+* Open your editor: Atom or your favorite plain text editor.
 
 ## How to connect to servers
 
-* password
 * encrypted key files: how to create your own [keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
+* password
 
-## setup your credentials
+## Setup your credentials
 
-Look for the `eofe-key` file. Normally is good to save it inside the `~.ssh/` folder so it is private. Copy the file to that location:
+Look for the `eofe-key` file. The standard location is inside the `~.ssh/` folder with tight permissions, so it is private and only your user has access to it. Copy the file to that location:
 
-`mkdir -p ~/.ssh`
+Create the folder if it doesn't exists: `mkdir -p ~/.ssh`
 
-`cp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.`
+`-rw-------@ 1 lpantano  staff   1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key`
 
-Check the file permission: `ll ~/.ssh/eofe-key`
+Move the file to the location: `mv PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.`
 
-It should show something like this:
+Check the file's permission: `ll ~/.ssh/eofe-key`
+
+The file's permission should look like this (look at the left hand side, the rw part):
 
 `-rw-------@ 1 lpantano  staff   1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key`
 
 If not, type this:
 
+`chmod 700 ~/.ssh/`
 `chmod 600 ~/.ssh/eofe-key`
 
 Then add the following lines to this file `~/.ssh/config` (Open it with Atom editor if you don't have experience editing from the terminal). This file contains information on how to connect to different computers: like `username`, `hostname` ...
@@ -51,10 +54,10 @@ UseKeychain, only in OSX systems
 change the username to yours
 {{% /notice %}}
 
-This will do that you can connect to that space just by doing `ssh mit` and if you are on:
+This will allow you to connect just by issuing `ssh mit` and if you are on:
 
-* mac OSX: you will be asked for the password once and it'll save it until you restart your computer
-* linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.
+* mac OSX: you will be asked for the password once and it'll save it until you restart your computer.
+* linux: things work the same way if you are on a graphic session, otherwise you need a bit more work, it is not that bad :). You can do the following to be asked by the password only once.
  
 ```
 eval `ssh-agent`
@@ -75,13 +78,13 @@ Now is the time to try and connect:
 You need to get this working to move forward
 {{% /notice %}}
 
-### Create working folder
+### Create working folder at the mit server
 
 `mkdir pilm103` 
 
-### Shared folders
+### Group shared folders
 
-Every group in PILM has a private and shared space folder:
+Every group at PILM has a private and shared space folder:
 
 ```
 ls /net/eofe-data004/mnt/pool/picower001/
