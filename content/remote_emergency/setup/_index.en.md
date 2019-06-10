@@ -11,7 +11,7 @@ tags: ["ssh", "rsa", "connection"]
 
 ```
 cd
-wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa
+wget https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/pilm103_rsa
 ```
 
 Look for the `pilm03_rsa` file. Normally is good to save it inside the `~.ssh/` folder so it is private. Copy the file to that location:
@@ -34,7 +34,7 @@ Then add the following lines to this file `~/.ssh/config` (Open it with Atom edi
 
 ```
 Host pilm103
-Hostname bioinfopilm.mit.edu
+Hostname bioinfopilm46.mit.edu
 User lpantano
 IdentityFile ~/.ssh/pilm103_rsa
 UseKeychain yes
