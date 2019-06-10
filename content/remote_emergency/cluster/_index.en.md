@@ -34,9 +34,9 @@ srun --time=0:5:00 --mem=200 md5sum pilm103/work/sample.fastq.gz
 
 ### Batch jobs
 
-Download the [script](https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm) from here: 
+Download the [script](https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/run_test.slurm) from here: 
 
-`wget https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm`
+`wget https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/run_test.slurm`
 
 It looks like that:
 
