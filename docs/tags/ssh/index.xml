@@ -27,7 +27,7 @@
       <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/</guid>
       <description>setup your credentials Get the credential files cd wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa  Look for the pilm03_rsa file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:
 mkdir -p ~/.ssh
-cp pilm103_rsa ~/.ssh/.
+mv pilm103_rsa ~/.ssh/.
 Check the file permission: ll ~/.ssh/pilm103_rsa
 It should show something like this:
 -rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/pilm103_rsa
@@ -51,10 +51,10 @@ For instance, imaging you use an interactive job to copy a lot of files over. If
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/</guid>
-      <description>mount the server  Open a new terminal.  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).
-mkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:
-ls ~/mnts/mit
-rsync command This is the best tool to use to transfer files.</description>
+      <description>mount the server Open a new terminal
+Only for Linux users:
+eval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).
+mkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:</description>
     </item>
     
   </channel>

@@ -1,5 +1,5 @@
 ---
-title: Remote actions __demo__
+title: Remote actions __local__
 weight: 15
 pre: "<b>3. </b>"
 chapter: true

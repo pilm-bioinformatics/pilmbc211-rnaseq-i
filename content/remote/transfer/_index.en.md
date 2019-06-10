@@ -7,9 +7,16 @@ tags: ["ssh", "rsync", "transfer"]
 
 ## mount the server
 
-* Open a new terminal.
+Open a **new terminal**
 
-A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the `sshfs` command (See requirements to know how to install it).
+Only for **Linux** users:
+```
+eval `ssh-agent`
+ssh-add ~/.ssh/pilm103_rsa
+# type the passphrase you used when registering your account
+```
+
+A good way to interact with remote storage is to **mount** the server as a folder in your computer. For that we need the `sshfs` command (See requirements to know how to install it).
 
 ```
 mkdir -p ~/mnts/mit
@@ -19,6 +26,16 @@ sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks
 Now you should be able to see your space:
 
 `ls ~/mnts/mit`
+
+To **unmount** (disconnect from the server):
+
+{{% notice warning %}}
+Don't do it now, we'll disconnect at the end.
+{{% /notice %}}
+
+```
+umount ~/mnts/mit
+```
 
 ## rsync command
 
@@ -37,8 +54,6 @@ The basic command is:
 Normally `origin` or `target` is a local folder or a remote computer.
 
 ### test file
-
-* Open a new terminal
 
 Download the following file:
 
@@ -59,7 +74,7 @@ Options explained:
 
 * a: all files, keeping owner, timestamp, recursive
 * v: verbose on, to know what files are being copying
-* P: progess
+* P: progress
 * n: dry-run, so there is no copy action 
 
 Alternatives:
@@ -72,4 +87,6 @@ If what we see makes sense, then we repeat it without the `-n` option. We can ad
 `rsync -avP work mit:~/pilm103`
 
 Move to the terminal where you did the first connection to the server and check if you see the file now in your home directory.
+
+Check if you see the file in the folder you mounted the server: `ls ~/mnts/mit/pilm103`
 

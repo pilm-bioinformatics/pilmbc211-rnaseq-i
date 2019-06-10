@@ -6,20 +6,49 @@ disableToc: false
 
 ## mount the server
 
-* Open a new terminal.
+Open a **new terminal**
+
+Only for **Linux** users:
+
+```
+eval `ssh-agent`
+ssh-add ~/.ssh/pilm103_rsa
+# type the passphrase you used when registering your account
+```
 
 A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the `sshfs` command (See requirements to know how to install it).
 
 ```
-mkdir -p ~/mnts/mit
-sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks
+cd
+mkdir -p ~/mnts/pilm103
+```
+
+And bind the folder to the remote folder:
+
+```bash
+sshfs pilm103:. ~/mnts/pilm103 -o delay_connect -o follow_symlinks
 ```
 
 Now you should be able to see your space:
 
-`ls ~/mnts/mit`
+`ls ~/mnts/pilm103`
+
+To **unmount**:
+
+```
+umount ~/mnts/pilm103
+```
 
 ## rsync command
+
+Open a **new terminal**
+
+Only for **Linux** users:
+```
+eval `ssh-agent`
+ssh-add ~/.ssh/pilm103_rsa
+# type the passphrase you used when registering your account
+```
 
 This is the best tool to use to transfer files. The main advantages:
 
@@ -37,8 +66,6 @@ Normally `origin` or `target` is a local folder or a remote computer.
 
 ### test file
 
-* Open a new terminal
-
 Download the following file:
 
 ```
@@ -52,23 +79,23 @@ cd ..
 
 In this case, we will copy from our local computer to the MIT storage cluster.
 
-`rsync -avn work/sample.fastq.gz mit:~/pilm103`
+`rsync -avn work/sample.fastq.gz pilm103:~/pilm103`
 
 Options explained:
 
 * a: all files, keeping owner, timestamp, recursive
 * v: verbose on, to know what files are being copying
-* P: progess
+* P: progress
 * n: dry-run, so there is no copy action 
 
 Alternatives:
 
-* full folder: `rsync -avn work mit:~/pilm103`
-* full folder ignoring that folder: `rsync -avn work/ mit:~/pilm103`
+* full folder: `rsync -avn work pilm103:~/pilm103`
+* full folder ignoring that folder: `rsync -avn work/ pilm103:~/pilm103`
 
 If what we see makes sense, then we repeat it without the `-n` option. We can add `-P` to see the progress of the transfer.
 
-`rsync -avP work mit:~/pilm103`
+`rsync -avP work pilm103:~/pilm103`
 
 Move to the terminal where you did the first connection to the server and check if you see the file now in your home directory.
 

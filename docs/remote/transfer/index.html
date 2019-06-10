@@ -12,20 +12,20 @@
     <title>File transfer :: Documentation for Hugo Learn Theme</title>
 
     
-    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560101741" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560101741" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560176838" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560176838" rel="stylesheet">
     
-      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560101741" rel="stylesheet">
+      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560176838" rel="stylesheet">
     
 
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560101741"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560176838"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560101741"></script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560101741"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560176838"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560176838"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc103-remote-storage-and-computing\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560101741"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560176838"></script>
 
     
   </div>
@@ -315,13 +315,13 @@
  
   
     
-    <li data-nav-id="/pilmbc103-remote-storage-and-computing/remote_emergency/" title="Remote actions __demo__" class="dd-item 
+    <li data-nav-id="/pilmbc103-remote-storage-and-computing/remote_emergency/" title="Remote actions __local__" class="dd-item 
         
         
         
         ">
       <a href="/pilmbc103-remote-storage-and-computing/remote_emergency/">
-          <b>3. </b>Remote actions __demo__
+          <b>3. </b>Remote actions __local__
           
             <i class="fas fa-check read-icon"></i>
           
@@ -575,11 +575,16 @@
 
 <h2 id="mount-the-server">mount the server</h2>
 
-<ul>
-<li>Open a new terminal.</li>
-</ul>
+<p>Open a <strong>new terminal</strong></p>
 
-<p>A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the <code>sshfs</code> command (See requirements to know how to install it).</p>
+<p>Only for <strong>Linux</strong> users:</p>
+
+<pre><code>eval `ssh-agent`
+ssh-add ~/.ssh/pilm103_rsa
+# type the passphrase you used when registering your account
+</code></pre>
+
+<p>A good way to interact with remote storage is to <strong>mount</strong> the server as a folder in your computer. For that we need the <code>sshfs</code> command (See requirements to know how to install it).</p>
 
 <pre><code>mkdir -p ~/mnts/mit
 sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks
@@ -588,6 +593,15 @@ sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks
 <p>Now you should be able to see your space:</p>
 
 <p><code>ls ~/mnts/mit</code></p>
+
+<p>To <strong>unmount</strong> (disconnect from the server):</p>
+
+<div class="notices warning"><p>
+Don't do it now, we'll disconnect at the end.
+</p></div>
+
+<pre><code>umount ~/mnts/mit
+</code></pre>
 
 <h2 id="rsync-command">rsync command</h2>
 
@@ -609,10 +623,6 @@ sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks
 
 <h3 id="test-file">test file</h3>
 
-<ul>
-<li>Open a new terminal</li>
-</ul>
-
 <p>Download the following file:</p>
 
 <pre><code>cd ~/Downloads
@@ -632,7 +642,7 @@ cd ..
 <ul>
 <li>a: all files, keeping owner, timestamp, recursive</li>
 <li>v: verbose on, to know what files are being copying</li>
-<li>P: progess</li>
+<li>P: progress</li>
 <li>n: dry-run, so there is no copy action</li>
 </ul>
 
@@ -648,6 +658,8 @@ cd ..
 <p><code>rsync -avP work mit:~/pilm103</code></p>
 
 <p>Move to the terminal where you did the first connection to the server and check if you see the file now in your home directory.</p>
+
+<p>Check if you see the file in the folder you mounted the server: <code>ls ~/mnts/mit/pilm103</code></p>
 
 
 
@@ -895,20 +907,20 @@ cd ..
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560101741"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560176838"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560101741"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560101741"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560176838"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560176838"></script>
 
-    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560101741" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560101741"></script>
+    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560176838" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560176838"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

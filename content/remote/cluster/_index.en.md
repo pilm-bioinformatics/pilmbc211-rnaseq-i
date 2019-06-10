@@ -12,13 +12,16 @@ Full tutorial to learn [hpc](https://epcced.github.io/hpc-intro/010-hpc-concepts
 * login node
 * computing node
 
-### interactive jobs
+### interactive jobs in eofe5
 
 ```
 srun --time=0:1:00 --mem=200  --pty --partition=sched_any /bin/bash
 ```
 
-> Notice how the computer names has change to something like `nodeXXX`
+{{% notice info %}}
+Notice how the computer names has change to something like `nodeXXX`
+{{% /notice %}}
+
 
 `md5sum pilm103/work/*gz`
 
@@ -30,7 +33,7 @@ Exercise: send md5sum to interactive
 srun --time=0:1:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
 ```
 
-### Batch jobs
+### Batch jobs in eofe5
 
 Download the [script](https://gist.githubusercontent.com/lpantano/fb4986dacd57c8cbb0c58db0d2d05ad0/raw/bde0bd504cdeb8d904788903e0c08b0b84035d0d/run_test.slurm) from here: 
 

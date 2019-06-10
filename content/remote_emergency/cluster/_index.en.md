@@ -24,7 +24,7 @@ Notice how the computer names has change to something like `nodeXXX`
 
 `md5sum pilm103/work/*gz`
 
-`ctrl-d` to exit from the computing node.
+`ctrl+d` to exit from the computing node.
 
 Exercise: send md5sum to interactive
 

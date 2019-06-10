@@ -4,7 +4,6 @@ title: "PILMBC103 Best practices on remote storage and computing systems"
 
 # Requirements
 
-
 - Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ 
 - Have an editor for programming, install _Atom_: https://atom.io/
 - Install sshfs: MACOSX (download and install the _two_ packages you see here: https://osxfuse.github.io/). LINUX (ubuntu, debian: sudo apt-get install sshfs)
@@ -15,7 +14,6 @@ title: "PILMBC103 Best practices on remote storage and computing systems"
 - eofe5 credentials: If you don't have one follow this link: https://engaging-web.mit.edu/request_account. Choose your PI names under `Group` droplist. You need to know your `username` and have the `eofe-key` file that you get after completion of your account.
 
 
-
 # Goal
 
 * connect to a remote server to transfer data securely: eofe5
@@ -23,3 +21,11 @@ title: "PILMBC103 Best practices on remote storage and computing systems"
 * transfer data
 * learn how to send jobs to the queue: eofe5 as an example
 * learn how to start interactive jobs to test quick scripts or test data: eofe5 as an example
+
+# Angels
+
+If you see you can help others during the workshop, please do, it will improve the dynamic.
+
+# Contributors
+
+Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc103-remote-storage-and-computing

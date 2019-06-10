@@ -36,12 +36,16 @@ If not, type this:
 Then add the following lines to this file `~/.ssh/config` (Open it with Atom editor if you don't have experience editing from the terminal). This file contains information on how to connect to different computers: like `username`, `hostname` ...
 
 ```
-Host mit # alias
-Hostname eofe5.mit.edu # full hostname
+Host mit
+Hostname eofe5.mit.edu
 User lpantano
 IdentityFile ~/.ssh/eofe-key
-UseKeychain yes # only macosx users
+UseKeychain yes
 ```
+
+{{% notice warning %}}
+UseKeychain, only in OSX systems
+{{% /notice %}}
 
 {{% notice info %}}
 change the username to yours
@@ -72,3 +76,21 @@ You need to get this working to move forward
 ### Create working folder
 
 `mkdir pilm103` 
+
+### Shared folders
+
+Every group in PILM has a private and shared space folder:
+
+```
+ls /net/eofe-data004/mnt/pool/picower001/
+```
+
+inside your group folder, you have the following structure:
+
+- user1
+- user2
+- user3
+- lab_shared
+  - user1
+  - user2
+  - user3

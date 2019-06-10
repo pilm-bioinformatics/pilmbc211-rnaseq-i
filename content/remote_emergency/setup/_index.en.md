@@ -18,7 +18,7 @@ Look for the `pilm03_rsa` file. Normally is good to save it inside the `~.ssh/` 
 
 `mkdir -p ~/.ssh`
 
-`cp pilm103_rsa ~/.ssh/.`
+`mv pilm103_rsa ~/.ssh/.`
 
 Check the file permission: `ll ~/.ssh/pilm103_rsa`
 
@@ -33,12 +33,16 @@ If not, type this:
 Then add the following lines to this file `~/.ssh/config` (Open it with Atom editor if you don't have experience editing from the terminal). This file contains information on how to connect to different computers: like `username`, `hostname` ...
 
 ```
-Host pilm03 # alias
-Hostname bioinfopilm.mit.edu # full hostname
+Host pilm103
+Hostname bioinfopilm.mit.edu
 User lpantano
 IdentityFile ~/.ssh/pilm103_rsa
-UseKeychain yes # only macosx users
+UseKeychain yes
 ```
+
+{{% notice warning %}}
+UseKeychain, only in OSX systems
+{{% /notice %}}
 
 {{% notice info %}}
 change the username to the one given to you
@@ -59,7 +63,7 @@ ssh-add ~/.ssh/pilm103_rsa
 
 Now is the time to try and connect:
 
-`ssh pilm03`
+`ssh pilm103`
 
 {{% notice warning %}}
 You need to get this working to move forward.
