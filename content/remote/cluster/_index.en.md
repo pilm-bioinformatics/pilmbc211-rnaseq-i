@@ -91,8 +91,8 @@ srun --time=0:15:00 --mem=2000 -c 1  --pty  /bin/bash
 ```
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH -c 1
-#SBATCH --mem=200
+#SBATCH -c 6
+#SBATCH --mem=16000
 #SBATCH -t 24:00:00
 #SBATCH -J "init"
 #SBATCH -e run.e
@@ -100,5 +100,5 @@ srun --time=0:15:00 --mem=2000 -c 1  --pty  /bin/bash
 ## SBATCH --mail-type=END,FAIL # this line is commented
 ## SBATCH --mail-user=you@mit.edu  # this line is commented
 
-sleep 60 # wait 60 seconds
+#command
 ```
