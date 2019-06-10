@@ -7,7 +7,7 @@ tags: ["slurm", "cluster"]
 
 ## most used commands on a cluster
 
-Full tutorial to learn [hpc](https://epcced.github.io/hpc-intro/010-hpc-concepts/). A cluster has two types of computers.
+Full tutorial to learn [hpc](https://epcced.github.io/hpc-intro/010-hpc-concepts/). A cluster has two types of computers:
 
 * login node
 * computing node
