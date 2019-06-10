@@ -21,8 +21,6 @@ Look for the `eofe-key` file. The standard location is inside the `~.ssh/` folde
 
 Create the folder if it doesn't exists: `mkdir -p ~/.ssh`
 
-`-rw-------@ 1 lpantano  staff   1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key`
-
 Move the file to the location: `mv PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.`
 
 Check the file's permission: `ll ~/.ssh/eofe-key`

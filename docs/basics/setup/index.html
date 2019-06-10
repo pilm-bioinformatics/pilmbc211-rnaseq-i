@@ -12,20 +12,20 @@
     <title>Set up :: PILMBC103</title>
 
     
-    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560182774" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560182774" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560183499" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560183499" rel="stylesheet">
     
-      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560182774" rel="stylesheet">
+      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560183499" rel="stylesheet">
     
 
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560182774"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560183499"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560182774"></script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560182774"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560183499"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560183499"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc103-remote-storage-and-computing\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560182774"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560183499"></script>
 
     
   </div>
@@ -552,37 +552,38 @@
 
 	
 
-<h2 id="set-up-environment">set up environment</h2>
+<h2 id="set-up-environment">Set up environment</h2>
 
 <ul>
 <li>Open a terminal: You need to know about these commands: <code>ls</code> , <code>cd folder</code>, <code>cd ..</code>,  <code>ctrl+d</code></li>
-<li>Open your editor: Atom or your favorite text plain editor.</li>
+<li>Open your editor: Atom or your favorite plain text editor.</li>
 </ul>
 
 <h2 id="how-to-connect-to-servers">How to connect to servers</h2>
 
 <ul>
-<li>password</li>
 <li>encrypted key files: how to create your own <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2">keys</a></li>
+<li>password</li>
 </ul>
 
-<h2 id="setup-your-credentials">setup your credentials</h2>
+<h2 id="setup-your-credentials">Setup your credentials</h2>
 
-<p>Look for the <code>eofe-key</code> file. Normally is good to save it inside the <code>~.ssh/</code> folder so it is private. Copy the file to that location:</p>
+<p>Look for the <code>eofe-key</code> file. The standard location is inside the <code>~.ssh/</code> folder with tight permissions, so it is private and only your user has access to it. Copy the file to that location:</p>
 
-<p><code>mkdir -p ~/.ssh</code></p>
+<p>Create the folder if it doesn&rsquo;t exists: <code>mkdir -p ~/.ssh</code></p>
 
-<p><code>cp PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.</code></p>
+<p>Move the file to the location: <code>mv PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.</code></p>
 
-<p>Check the file permission: <code>ll ~/.ssh/eofe-key</code></p>
+<p>Check the file&rsquo;s permission: <code>ll ~/.ssh/eofe-key</code></p>
 
-<p>It should show something like this:</p>
+<p>The file&rsquo;s permission should look like this (look at the left hand side, the rw part):</p>
 
 <p><code>-rw-------@ 1 lpantano  staff   1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key</code></p>
 
 <p>If not, type this:</p>
 
-<p><code>chmod 600 ~/.ssh/eofe-key</code></p>
+<p><code>chmod 700 ~/.ssh/</code>
+<code>chmod 600 ~/.ssh/eofe-key</code></p>
 
 <p>Then add the following lines to this file <code>~/.ssh/config</code> (Open it with Atom editor if you don&rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like <code>username</code>, <code>hostname</code> &hellip;</p>
 
@@ -601,11 +602,11 @@ UseKeychain, only in OSX systems
 change the username to yours
 </p></div>
 
-<p>This will do that you can connect to that space just by doing <code>ssh mit</code> and if you are on:</p>
+<p>This will allow you to connect just by issuing <code>ssh mit</code> and if you are on:</p>
 
 <ul>
-<li>mac OSX: you will be asked for the password once and it&rsquo;ll save it until you restart your computer</li>
-<li>linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.</li>
+<li>mac OSX: you will be asked for the password once and it&rsquo;ll save it until you restart your computer.</li>
+<li>linux: things work the same way if you are on a graphic session, otherwise you need a bit more work, it is not that bad :). You can do the following to be asked by the password only once.</li>
 </ul>
 
 <pre><code>eval `ssh-agent`
@@ -626,13 +627,13 @@ Type the password you gave during registration
 You need to get this working to move forward
 </p></div>
 
-<h3 id="create-working-folder">Create working folder</h3>
+<h3 id="create-working-folder-at-the-mit-server">Create working folder at the mit server</h3>
 
 <p><code>mkdir pilm103</code></p>
 
-<h3 id="shared-folders">Shared folders</h3>
+<h3 id="group-shared-folders">Group shared folders</h3>
 
-<p>Every group in PILM has a private and shared space folder:</p>
+<p>Every group at PILM has a private and shared space folder:</p>
 
 <pre><code>ls /net/eofe-data004/mnt/pool/picower001/
 </code></pre>
@@ -905,20 +906,20 @@ general  heimanlab  lhtsailab  littletonlab  surlab  tyelab  wilsonlab  xulab
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560182774"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560183499"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560182774"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560182774"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560183499"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560183499"></script>
 
-    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560182774" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560182774"></script>
+    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560183499" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560183499"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

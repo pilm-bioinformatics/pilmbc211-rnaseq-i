@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/</guid>
-      <description>set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite text plain editor.  How to connect to servers  password encrypted key files: how to create your own keys  setup your credentials Look for the eofe-key file. Normally is good to save it inside the ~.ssh/ folder so it is private.</description>
+      <description>Set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite plain text editor.  How to connect to servers  encrypted key files: how to create your own keys password  Setup your credentials Look for the eofe-key file. The standard location is inside the ~.ssh/ folder with tight permissions, so it is private and only your user has access to it.</description>
     </item>
     
     <item>
