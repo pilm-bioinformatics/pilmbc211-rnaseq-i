@@ -53,7 +53,7 @@ For instance, imaging you use an interactive job to copy a lot of files over. If
       <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/</guid>
       <description>mount the server Open a new terminal
 Only for Linux users:
-eval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).
+eval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa   Type the password you gave during registration  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).
 mkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:</description>
     </item>
     

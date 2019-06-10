@@ -13,8 +13,11 @@ Only for **Linux** users:
 ```
 eval `ssh-agent`
 ssh-add ~/.ssh/pilm103_rsa
-# type the passphrase you used when registering your account
 ```
+
+{{% notice info %}}
+Type the password you gave during registration
+{{% /notice %}}
 
 A good way to interact with remote storage is to **mount** the server as a folder in your computer. For that we need the `sshfs` command (See requirements to know how to install it).
 

@@ -59,8 +59,10 @@ This will do that you can connect to that space just by doing `ssh mit` and if y
 ```
 eval `ssh-agent`
 ssh-add ~/.ssh/eofe-key
-# type the passphrase you used when registering your account
 ```
+{{% notice info %}}
+Type the password you gave during registration
+{{% /notice %}}
 
 ### Test your connection
 
@@ -83,6 +85,14 @@ Every group in PILM has a private and shared space folder:
 
 ```
 ls /net/eofe-data004/mnt/pool/picower001/
+```
+
+You should see this:
+
+```
+[lpantano@eofe5:~]
+|$ ls /net/eofe-data004/mnt/pool/picower001/
+general  heimanlab  lhtsailab  littletonlab  surlab  tyelab  wilsonlab  xulab
 ```
 
 inside your group folder, you have the following structure:

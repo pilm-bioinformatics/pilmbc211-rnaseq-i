@@ -28,3 +28,15 @@ How you jobs get schedule:
 - According your **Fairshare** score:
   - number of jobs/resources requested in the past
   - precision of the resources requested vs needed
+  
+## Summary
+
+- transfer
+  - `sshfs` to mount remote folders
+  - `rsync` to transfer files
+- cluster
+  - `srun` for interactive or on the spot Jobs
+  - `sbatch` for automatize Jobs
+  - `-c` to aks for number of cores
+  - `--mem` to ask for memory in **Mb** (2000 is 2GB)
+  - `--time=d-hh:mm:00` to define limit duration

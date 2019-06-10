@@ -16,11 +16,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/</guid>
-      <description>most used commands on a cluster Full tutorial to learn hpc
- login node computing node  interactive jobs in eofe5 srun --time=0:1:00 --mem=200 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like `nodeXXX`  md5sum pilm103/work/*gz
+      <description>most used commands on a cluster Full tutorial to learn hpc. A cluster has two types of computers.
+ login node computing node  interactive jobs in eofe5 srun --time=0:1:00 --mem=200 -c 1 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like `nodeXXX`  md5sum pilm103/work/*gz
 ctrl-d to exit from the computing node.
 Exercise: send md5sum to interactive
-srun --time=0:1:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz  Batch jobs in eofe5 Download the script from here:</description>
+srun --time=0:1:00 --mem=200 -c 1 --partition=sched_any md5sum pilm103/work/sample.</description>
     </item>
     
     <item>

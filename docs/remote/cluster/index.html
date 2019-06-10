@@ -12,20 +12,20 @@
     <title>Usage of cluster :: PILMBC103</title>
 
     
-    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560178285" rel="stylesheet">
-    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560178285" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/nucleus.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/fontawesome-all.min.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hybrid.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/featherlight.min.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/perfect-scrollbar.min.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/auto-complete.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/atom-one-dark-reasonable.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/theme.css?1560181099" rel="stylesheet">
+    <link href="/pilmbc103-remote-storage-and-computing/css/hugo-theme.css?1560181099" rel="stylesheet">
     
-      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560178285" rel="stylesheet">
+      <link href="/pilmbc103-remote-storage-and-computing/css/theme-blue.css?1560181099" rel="stylesheet">
     
 
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560178285"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery-3.3.1.min.js?1560181099"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560178285"></script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560178285"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/lunr.min.js?1560181099"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/auto-complete.js?1560181099"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc103-remote-storage-and-computing\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560178285"></script>
+<script type="text/javascript" src="/pilmbc103-remote-storage-and-computing/js/search.js?1560181099"></script>
 
     
   </div>
@@ -579,7 +579,7 @@
 
 <h2 id="most-used-commands-on-a-cluster">most used commands on a cluster</h2>
 
-<p>Full tutorial to learn <a href="https://epcced.github.io/hpc-intro/010-hpc-concepts/">hpc</a></p>
+<p>Full tutorial to learn <a href="https://epcced.github.io/hpc-intro/010-hpc-concepts/">hpc</a>. A cluster has two types of computers.</p>
 
 <ul>
 <li>login node</li>
@@ -588,7 +588,7 @@
 
 <h3 id="interactive-jobs-in-eofe5">interactive jobs in eofe5</h3>
 
-<pre><code>srun --time=0:1:00 --mem=200  --pty --partition=sched_any /bin/bash
+<pre><code>srun --time=0:1:00 --mem=200  -c 1 --pty --partition=sched_any /bin/bash
 </code></pre>
 
 <div class="notices info"><p>
@@ -601,7 +601,7 @@ Notice how the computer names has change to something like `nodeXXX`
 
 <p>Exercise: send md5sum to interactive</p>
 
-<pre><code>srun --time=0:1:00 --mem=200 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
+<pre><code>srun --time=0:1:00 --mem=200 -c 1 --partition=sched_any md5sum pilm103/work/sample.fastq.gz
 </code></pre>
 
 <h3 id="batch-jobs-in-eofe5">Batch jobs in eofe5</h3>
@@ -648,7 +648,7 @@ md5sum pilm103/work/sample.fastq.gz
 
 <h3 id="interactive-jobs">Interactive Jobs</h3>
 
-<pre><code>srun --time=0:15:00 --mem=2000  --pty  /bin/bash
+<pre><code>srun --time=0:15:00 --mem=2000 -c 1  --pty  /bin/bash
 </code></pre>
 
 <h3 id="batch-jobs">Batch Jobs</h3>
@@ -916,20 +916,20 @@ sleep 60 # wait 60 seconds
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560178285"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/clipboard.min.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.min.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/perfect-scrollbar.jquery.min.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/jquery.sticky.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/featherlight.min.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/html5shiv-printshiv.min.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/highlight.pack.js?1560181099"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560178285"></script>
-    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560178285"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/modernizr.custom-3.6.0.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/learn.js?1560181099"></script>
+    <script src="/pilmbc103-remote-storage-and-computing/js/hugo-learn.js?1560181099"></script>
 
-    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560178285" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560178285"></script>
+    <link href="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.css?1560181099" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc103-remote-storage-and-computing/mermaid/mermaid.js?1560181099"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
