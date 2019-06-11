@@ -12,12 +12,11 @@ title: "PILMBC211"
 - Docker: https://docs.docker.com/v17.12/install/
 - [nexflow](https://www.nextflow.io/): In the terminal do this: 
     
-    `java -version # >= 8`
+    `java -version` This has to return a version > 8 or >1.8
     
     `curl -s https://get.nextflow.io | bash`
     
     `./nextflow run hello`
-    
 
 # Agenda
 
@@ -29,7 +28,7 @@ title: "PILMBC211"
    - surlab: Ming Hu
    - tsailab: Lorena Pantano
    
-You are welcome to stay during the whole session even if you don't want to follow the _handons_ materials.
+You are welcome to stay during the whole session even if you don't want/can't to follow the _handons_ materials.
 
 # Goal
 
@@ -43,4 +42,4 @@ If you see you can help others during the workshop, please do, it will improve t
 
 # Contributors
 
-Happy to accept corrections at: 
+Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc211-rnaseq-i
