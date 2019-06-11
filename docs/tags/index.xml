@@ -2,85 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on PILMBC103</title>
-    <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/</link>
+    <link>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/tags/</link>
     <description>Recent content in Tags on PILMBC103</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
-	<atom:link href="https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>cluster</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/cluster/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/cluster/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>connection</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/connection/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/connection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rsa</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsa/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rsync</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsync/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsync/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>slurm</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/slurm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/slurm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ssh</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terminal</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>transfer</title>
-      <link>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/transfer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/transfer/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

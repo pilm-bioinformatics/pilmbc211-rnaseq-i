@@ -1,26 +1,41 @@
 ---
-title: "PILMBC103 Best practices on remote storage and computing systems"
+title: "PILMBC211"
 ---
 
 # Requirements
 
-- Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ 
-- Have an editor for programming, install _Atom_: https://atom.io/
-- Install sshfs: MACOSX (download and install the _two_ packages you see here: https://osxfuse.github.io/). LINUX (ubuntu, debian: sudo apt-get install sshfs)
-- know what is a terminal or
-	-  make section 1 of this tutorial: [Learn Enough Command Line to Be Dangerous |  Learn Enough to Be Dangerous](https://www.learnenough.com/command-line-tutorial/basics)
-	- [Navigating the Terminal: A Gentle Introduction - YouTube](https://www.youtube.com/watch?v=Vhcx4KJbtes&feature=youtu.be)
-	- play this game done at MIT: [Terminus](http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html)
-- eofe5 credentials: If you don't have one follow this link: https://engaging-web.mit.edu/request_account. Choose your PI names under `Group` droplist. You need to know your `username` and have the `eofe-key` file that you get after completion of your account.
+## knowledge 
+- PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/
+- What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/
 
+## Software
+- Docker: https://docs.docker.com/v17.12/install/
+- [nexflow](https://www.nextflow.io/): In the terminal do this: 
+    
+    `java -version # >= 8`
+    
+    `curl -s https://get.nextflow.io | bash`
+    
+    `./nextflow run hello`
+    
+
+# Agenda
+
+- 1:30-1:55 Introduction to _vim_ __handons__: modify files in the terminal (mandatory if you don't know this)
+- 2:00-2:25 Best practices for RNAseq ananlysis __lecture__
+- 2:30-3:50 Running an example in the local computer __handons__
+- 3:00-3:30 Running an example in OpenMind cluster __handons__: you need to be part of the cluster
+   - millerlab : Jefferson Roy
+   - surlab: Ming Hu
+   - tsailab: Lorena Pantano
+   
+You are welcome to stay during the whole session even if you don't want to follow the _handons_ materials.
 
 # Goal
 
-* connect to a remote server to transfer data securely: eofe5
-* connect to a cluster and keep the session alive: eofe5
-* transfer data
-* learn how to send jobs to the queue: eofe5 as an example
-* learn how to start interactive jobs to test quick scripts or test data: eofe5 as an example
+- Best practices on choosing the right tool
+- How to process FASTQ files from RNAseq experiments
+- Run a test data analysis in your computer or/and the Open Mind cluster
 
 # Angels
 
@@ -28,4 +43,4 @@ If you see you can help others during the workshop, please do, it will improve t
 
 # Contributors
 
-Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc103-remote-storage-and-computing
+Happy to accept corrections at: 

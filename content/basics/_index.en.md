@@ -21,8 +21,3 @@ graph LR;
 ```
 
 ## Summary
-
-- `.ssh/config` is the file where you configure remote computers
-- `rsa keys` are files to connect to remote computers securely
-- `tmux` is a tool to help to keep alive sessions on remote computers without a connection
-- `/net/eofe-data004/mnt/pool/picower001` is the PILM storage space

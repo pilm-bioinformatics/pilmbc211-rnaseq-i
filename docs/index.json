@@ -1,161 +1,42 @@
 [
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/",
 	"title": "Basics",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 1 Basics Here, you will learn how to set up your computer to connect to remote resources and some tips that will make this task easier.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Remote] D --\u0026gt; E[Remote]  Summary  .ssh/config is the file where you configure remote computers rsa keys are files to connect to remote computers securely tmux is a tool to help to keep alive sessions on remote computers without a connection /net/eofe-data004/mnt/pool/picower001 is the PILM storage space  "
+	"content": " Chapter 1 Basics Here, you will learn how to set up your computer to connect to remote resources and some tips that will make this task easier.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Remote] D --\u0026gt; E[Remote]  Summary "
 },
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/",
-	"title": "Remote actions",
-	"tags": [],
-	"description": "",
-	"content": " Chapter 2 Remote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Server-login node] D --\u0026gt; E[Server-login node] E --\u0026gt;|job1| F[compute node 1] E --\u0026gt;|job2| G[compute node 2]  How you jobs get schedule:\n According to the requested resources/ available resources According your Fairshare score:  number of jobs/resources requested in the past precision of the resources requested vs needed    Summary  transfer  sshfs to mount remote folders rsync to transfer files  cluster  srun for interactive or on the spot Jobs sbatch for automatize Jobs -c to aks for number of cores --mem to ask for memory in Mb (2000 is 2GB) --time=d-hh:mm:00 to define limit duration   "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/requirements/",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/requirements/",
 	"title": "Requirements",
 	"tags": [],
 	"description": "",
-	"content": " Requirements  Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ Have a full featured programming editor, I suggest Atom: https://atom.io/ Install sshfs:  MACOSX : download and install the two packages you see here: https://osxfuse.github.io/ LINUX : ubuntu, debian: sudo apt-get install sshfs  Have some experience with the terminal or  Go through section 1 of this tutorial: Learn Enough Command Line to Be Dangerous | Learn Enough to Be Dangerous Navigating the Terminal: A Gentle Introduction - YouTube Play this game built at MIT: Terminus  Have your eofe5 credentials ready: If you don\u0026rsquo;t have them follow this link: https://engaging-web.mit.edu/request_account. Choose your PI name under Group droplist. You need to know your username and have the eofe-key file that you get after creation of your account.  "
+	"content": " Requirements "
 },
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/setup/",
-	"title": "Set up",
-	"tags": ["ssh", "rsa", "connection"],
-	"description": "",
-	"content": " Set up environment  Open a terminal: You need to know about these commands: ls , cd folder, cd .., ctrl+d Open your editor: Atom or your favorite plain text editor.  How to connect to servers  encrypted key files: how to create your own keys password  Setup your credentials Look for the eofe-key file. The standard location is inside the ~.ssh/ folder with tight permissions, so it is private and only your user has access to it. Copy the file to that location:\nCreate the folder if it doesn\u0026rsquo;t exists: mkdir -p ~/.ssh\nMove the file to the location: mv PATH_TO_EOFE_KEY/eofe-key ~/.ssh/.\nCheck the file\u0026rsquo;s permission: ll ~/.ssh/eofe-key\nThe file\u0026rsquo;s permission should look like this (look at the left hand side, the rw part):\n-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/eofe-key\nIf not, type this:\nchmod 700 ~/.ssh/ chmod 600 ~/.ssh/eofe-key\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor if you don\u0026rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost mit Hostname eofe5.mit.edu User lpantano IdentityFile ~/.ssh/eofe-key UseKeychain yes   UseKeychain, only in OSX systems   change the username to yours  This will allow you to connect just by issuing ssh mit and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer. linux: things work the same way if you are on a graphic session, otherwise you need a bit more work, it is not that bad :). You can do the following to be asked by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/eofe-key   Type the password you gave during registration  Test your connection Now is the time to try and connect:\nssh mit\n You need to get this working to move forward  Create working folder at the mit server mkdir pilm103\nGroup shared folders Every group at PILM has a private and shared space folder:\nls /net/eofe-data004/mnt/pool/picower001/  You should see this:\n[lpantano@eofe5:~] |$ ls /net/eofe-data004/mnt/pool/picower001/ general heimanlab lhtsailab littletonlab surlab tyelab wilsonlab xulab  inside your group folder, you have the following structure:\n user1 user2 user3 lab_shared  user1 user2 user3   "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/setup/",
-	"title": "Set up",
-	"tags": ["ssh", "rsa", "connection"],
-	"description": "",
-	"content": " setup your credentials Get the credential files cd wget https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/pilm103_rsa  Look for the pilm03_rsa file. Normally is good to save it inside the ~.ssh/ folder so it is private. Copy the file to that location:\nmkdir -p ~/.ssh\nmv pilm103_rsa ~/.ssh/.\nCheck the file permission: ll ~/.ssh/pilm103_rsa\nIt should show something like this:\n-rw-------@ 1 lpantano staff 1.7K May 23 10:32 /Users/lpantano/.ssh/pilm103_rsa\nIf not, type this:\nchmod 600 ~/.ssh/pilm103_rsa\nThen add the following lines to this file ~/.ssh/config (Open it with Atom editor if you don\u0026rsquo;t have experience editing from the terminal). This file contains information on how to connect to different computers: like username, hostname \u0026hellip;\nHost pilm103 Hostname bioinfopilm46.mit.edu User lpantano IdentityFile ~/.ssh/pilm103_rsa UseKeychain yes   UseKeychain, only in OSX systems   change the username to the one given to you  This will do that you can connect to that space just by doing ssh pilm03 and if you are on:\n mac OSX: you will be asked for the password once and it\u0026rsquo;ll save it until you restart your computer linux: things are not that nice here, but it is not that bad :). You can do the following to get ask by the password only once.  eval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  Test your connection Now is the time to try and connect:\nssh pilm103\n You need to get this working to move forward.  Create working folder mkdir pilm103\n"
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/basics/tips/",
-	"title": "Permanent connection",
-	"tags": ["ssh", "terminal"],
-	"description": "",
-	"content": " tricks to use sessions inside teminal: tmux Learn more about tmux, but basically is a way to leave alive your terminal environment in a remote computer.\nFor instance, imaging you use an interactive job to copy a lot of files over. If you lose the connection to the remote computer, that session ends, and the transfer will be killed. As well, it allows to have multiple sessions with a single connection.\nCommunication with tmux is by the use of two keys in the keyboard: Ctrl + b. That is called the prefix, and is the trigger to get tmux listen to what you want to do next: for instance create a new windows, or change between windows, etc\u0026hellip;\nWhen you are in the remote computer, type:\ntmux new -s s1  Then create another window:\nprefix + c  Name windows:\nprefix + ,  Now type other and press Enter\nMove to among windows:\nprefix + 0 prefix + 1  detach the session and come back:\nprefix + d tmux a -t s1  Disconnect from the computer and come back:\nctrl + d ssh mit tmux -a -t s1  "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/",
-	"title": "Remote actions __local__",
-	"tags": [],
-	"description": "",
-	"content": " Chapter 3 This chapter is in case the main server is not working so we need to use a local tiny remote resource to go through the materials.\nDownload the key to get access.\ncd wget https://github.mit.edu/PILM-bioinformatics/support/raw/master/workshops/pim103/pilm103_rsa  Every student will have a user name given during the lecture.\nRemote actions Here, you will learn how to interact with remote computers, transfer files and send jobs to a cluster.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Server-login node] D --\u0026gt; E[Server-login node] E --\u0026gt;|job1| F[compute node 1] E --\u0026gt;|job2| G[compute node 2]  How you jobs get schedule:\n According to the requested resources/ available resources According your Fairshare score:  number of jobs/resources requested in the past precision of the resources requested vs needed    ## Summary\n transfer  sshfs to mount remote folders rsync to transfer files  cluster  srun for interactive or on the spot Jobs sbatch for automatize Jobs -c to aks for number of cores --mem to ask for memory in Mb (2000 is 2GB) --time=d-hh:mm:00 to define limit duration   "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/transfer/",
-	"title": "File transfer",
-	"tags": ["ssh", "rsync", "transfer"],
-	"description": "",
-	"content": " mount the server Open a new terminal\nOnly for Linux users:\neval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa   Type the password you gave during registration  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).\nmkdir -p ~/mnts/mit sshfs mit:. ~/mnts/mit -o delay_connect -o follow_symlinks  Now you should be able to see your space:\nls ~/mnts/mit\nTo unmount (disconnect from the server):\n Don't do it now, we'll disconnect at the end.  umount ~/mnts/mit  rsync command This is the best tool to use to transfer files. The main advantages:\n include only some files exclude some files copy the file metadata dry-run: you can check what is going to do it checks the file content  The basic command is:\nrsync [options] origin target\nNormally origin or target is a local folder or a remote computer.\ntest file Download the following file:\ncd ~/Downloads mkdir work \u0026amp;\u0026amp; cd work curl -L https://github.com/nf-core/test-datasets/raw/smrnaseq/testdata/sample_1.fastq.gz -o sample.fastq.gz cd ..  data in/out In this case, we will copy from our local computer to the MIT storage cluster.\nrsync -avn work/sample.fastq.gz mit:~/pilm103\nOptions explained:\n a: all files, keeping owner, timestamp, recursive v: verbose on, to know what files are being copying P: progress n: dry-run, so there is no copy action  Alternatives:\n full folder: rsync -avn work mit:~/pilm103 full folder ignoring that folder: rsync -avn work/ mit:~/pilm103  If what we see makes sense, then we repeat it without the -n option. We can add -P to see the progress of the transfer.\nrsync -avP work mit:~/pilm103\nMove to the terminal where you did the first connection to the server and check if you see the file now in your home directory.\nCheck if you see the file in the folder you mounted the server: ls ~/mnts/mit/pilm103\n"
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/transfer/",
-	"title": "File transfer",
-	"tags": [],
-	"description": "",
-	"content": " mount the server Open a new terminal\nOnly for Linux users:\neval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  A good way to interact with remote storage is to mount the server as a folder in your computer. For that we need the sshfs command (See requirements to know how to install it).\ncd mkdir -p ~/mnts/pilm103  And bind the folder to the remote folder:\nsshfs pilm103:. ~/mnts/pilm103 -o delay_connect -o follow_symlinks  Now you should be able to see your space:\nls ~/mnts/pilm103\nTo unmount:\numount ~/mnts/pilm103  rsync command Open a new terminal\nOnly for Linux users:\neval `ssh-agent` ssh-add ~/.ssh/pilm103_rsa # type the passphrase you used when registering your account  This is the best tool to use to transfer files. The main advantages:\n include only some files exclude some files copy the file metadata dry-run: you can check what is going to do it checks the file content  The basic command is:\nrsync [options] origin target\nNormally origin or target is a local folder or a remote computer.\ntest file Download the following file:\ncd ~/Downloads mkdir work \u0026amp;\u0026amp; cd work curl -L https://github.com/nf-core/test-datasets/raw/smrnaseq/testdata/sample_1.fastq.gz -o sample.fastq.gz cd ..  data in/out In this case, we will copy from our local computer to the MIT storage cluster.\nrsync -avn work/sample.fastq.gz pilm103:~/pilm103\nOptions explained:\n a: all files, keeping owner, timestamp, recursive v: verbose on, to know what files are being copying P: progress n: dry-run, so there is no copy action  Alternatives:\n full folder: rsync -avn work pilm103:~/pilm103 full folder ignoring that folder: rsync -avn work/ pilm103:~/pilm103  If what we see makes sense, then we repeat it without the -n option. We can add -P to see the progress of the transfer.\nrsync -avP work pilm103:~/pilm103\nMove to the terminal where you did the first connection to the server and check if you see the file now in your home directory.\n"
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote/cluster/",
-	"title": "Usage of cluster",
-	"tags": ["slurm", "cluster"],
-	"description": "",
-	"content": " most used commands on a cluster Full tutorial to learn hpc. A cluster has two types of computers:\n login node computing node  interactive jobs in eofe5 srun --time=0:1:00 --mem=200 -c 1 --pty --partition=sched_any /bin/bash   Notice how the computer names has change to something like `nodeXXX`  md5sum pilm103/work/*gz\nctrl-d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:1:00 --mem=200 -c 1 --partition=sched_any md5sum pilm103/work/sample.fastq.gz  Batch jobs in eofe5 Download the script from here:\nwget https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 00:1:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds md5sum pilm103/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u USERNAME  Check you past jobs sacct -j $JOBID --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist  OpenMind cluster Interactive Jobs srun --time=0:15:00 --mem=2000 -c 1 --pty /bin/bash  Batch Jobs #!/bin/bash #SBATCH -N 1 #SBATCH -c 6 #SBATCH --mem=16000 #SBATCH -t 24:00:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented #command  "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/remote_emergency/cluster/",
-	"title": "Usage of cluster",
-	"tags": ["cluster", "slurm"],
-	"description": "",
-	"content": " most used commands on a cluster Full tutorial to learn hpc\n login node computing node  interactive jobs srun --time=0:15:00 --mem=200 --pty /bin/bash   Notice how the computer names has change to something like `nodeXXX`  md5sum pilm103/work/*gz\nctrl+d to exit from the computing node.\nExercise: send md5sum to interactive\nsrun --time=0:5:00 --mem=200 md5sum pilm103/work/sample.fastq.gz  Batch jobs Download the script from here:\nwget https://github.com/pilm-bioinformatics/core/raw/master/workshops/pilm103/run_test.slurm\nIt looks like that:\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=200 #SBATCH -t 00:1:00 #SBATCH -J \u0026quot;init\u0026quot; #SBATCH -e run.e #SBATCH -o run.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=you@mit.edu # this line is commented sleep 60 # wait 60 seconds md5sum pilm103/work/sample.fastq.gz  You can check that by typing cat run_test.slurm.\nExercise: send md5sum to queue\nsbatch run_test.slurm  Check your jobs: squeue -u lpantano  "
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/categories/",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/credits/",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/credits/",
 	"title": "Credits",
 	"tags": [],
 	"description": "",
 	"content": " Content  Lorena Pantano - Picower Institute Judith Flo - Harvard Engineering School  Theme Contributors Thanks to them  for making Open Source Software a better place !\n.ghContributors{ display:flex; flex-flow: wrap; align-content: flex-start }\n.ghContributors \u0026gt; div{ width: 50% ; display: inline-flex; margin-bottom: 5px; } .ghContributors \u0026gt; div label{ padding-left: 4px ; } .ghContributors \u0026gt; div span{ font-size: x-small; padding-left: 4px ; }\n  @matcornic 152 commits \n @matalo33 37 commits \n @lierdakil 16 commits \n @coliff 13 commits \n @gwleclerc 13 commits \n @mdavids 10 commits \n @ozobi 5 commits \n @Xipas 5 commits \n @pdelaby 4 commits \n @Chris-Greaves 3 commits \n @mreithub 3 commits \n @massimeddu 3 commits \n @willwade 3 commits \n @denisvm 2 commits \n @gpospelov 2 commits \n @tanzaho 2 commits \n @wikijm 2 commits \n @lfalin 2 commits \n @alexvargasbenamburg 1 commits \n @afs2015 1 commits \n @arifpedia 1 commits \n @berryp 1 commits \n @MrMoio 1 commits \n @ChrisLasar 1 commits \n @giuliov 1 commits \n @haitch 1 commits \n @ImgBotApp 1 commits \n @RealOrangeOne 1 commits \n @JohnBlood 1 commits \n @kamilchm 1 commits \n @lloydbenson 1 commits \n @sykesm 1 commits \n @nvasudevan 1 commits \n @654wak654 1 commits \n @PierreAdam 1 commits \n @ripienaar 1 commits \n @EnigmaCurry 1 commits \n @taiidani 1 commits \n @exKAZUu 1 commits \n @shelane 1 commits \n @tedyoung 1 commits \n @Thiht 1 commits \n @editicalu 1 commits \n @fossabot 1 commits \n @kamar535 1 commits \n @nonumeros 1 commits \n @pgorod 1 commits \n @proelbtn 1 commits \n\nAnd a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.\nPackages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  Tooling  Netlify - Continuous deployement and hosting of this documentation Hugo  "
 },
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/",
-	"title": "PILMBC103 Best practices on remote storage and computing systems",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/",
+	"title": "PILMBC211",
 	"tags": [],
 	"description": "",
-	"content": " Requirements  Your own computer: Linux or MacOSX. If you have Windows, follow this guideline: https://docs.docker.com/docker-for-windows/ Have an editor for programming, install Atom: https://atom.io/ Install sshfs: MACOSX (download and install the two packages you see here: https://osxfuse.github.io/). LINUX (ubuntu, debian: sudo apt-get install sshfs) know what is a terminal or  make section 1 of this tutorial: Learn Enough Command Line to Be Dangerous | Learn Enough to Be Dangerous Navigating the Terminal: A Gentle Introduction - YouTube play this game done at MIT: Terminus  eofe5 credentials: If you don\u0026rsquo;t have one follow this link: https://engaging-web.mit.edu/request_account. Choose your PI names under Group droplist. You need to know your username and have the eofe-key file that you get after completion of your account.  Goal  connect to a remote server to transfer data securely: eofe5 connect to a cluster and keep the session alive: eofe5 transfer data learn how to send jobs to the queue: eofe5 as an example learn how to start interactive jobs to test quick scripts or test data: eofe5 as an example  Angels If you see you can help others during the workshop, please do, it will improve the dynamic.\nContributors Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc103-remote-storage-and-computing\n"
+	"content": " Requirements knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version # \u0026gt;= 8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  Agenda  1:30-1:55 Introduction to vim handons: modify files in the terminal (mandatory if you don\u0026rsquo;t know this) 2:00-2:25 Best practices for RNAseq ananlysis lecture 2:30-3:50 Running an example in the local computer handons 3:00-3:30 Running an example in OpenMind cluster handons: you need to be part of the cluster  millerlab : Jefferson Roy surlab: Ming Hu tsailab: Lorena Pantano    You are welcome to stay during the whole session even if you don\u0026rsquo;t want to follow the handons materials.\nGoal  Best practices on choosing the right tool How to process FASTQ files from RNAseq experiments Run a test data analysis in your computer or/and the Open Mind cluster  Angels If you see you can help others during the workshop, please do, it will improve the dynamic.\nContributors Happy to accept corrections at:\n"
 },
 {
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/",
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/tags/",
 	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/cluster/",
-	"title": "cluster",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/connection/",
-	"title": "connection",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsa/",
-	"title": "rsa",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/rsync/",
-	"title": "rsync",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/slurm/",
-	"title": "slurm",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/ssh/",
-	"title": "ssh",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/terminal/",
-	"title": "terminal",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/tags/transfer/",
-	"title": "transfer",
 	"tags": [],
 	"description": "",
 	"content": ""
