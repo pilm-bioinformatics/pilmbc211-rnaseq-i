@@ -4,8 +4,6 @@ weight: 10
 disableToc: true
 ---
 
-# Requirements
-
 ## knowledge 
 - PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/
 - What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/

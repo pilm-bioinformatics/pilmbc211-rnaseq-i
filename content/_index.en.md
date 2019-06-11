@@ -21,7 +21,7 @@ title: "PILMBC211"
 # Agenda
 
 - 1:30-1:55 Introduction to _vim_ __handons__: modify files in the terminal (mandatory if you don't know this)
-- 2:00-2:25 Best practices for RNAseq ananlysis __lecture__
+- 2:00-2:25 Best practices for RNAseq analysis __lecture__
 - 2:30-3:50 Running an example in the local computer __handons__
 - 3:00-3:30 Running an example in OpenMind cluster __handons__: you need to be part of the cluster
    - millerlab : Jefferson Roy
