@@ -4,14 +4,14 @@
 	"title": "Basics",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 1 Basics Here, you will learn how to set up your computer to connect to remote resources and some tips that will make this task easier.\ngraph LR; A[Local computer] --\u0026gt;|connection| B{credentials?} B --\u0026gt;|password| C[semi-secure] B --\u0026gt;|keys| D[secure] C --\u0026gt; E[Remote] D --\u0026gt; E[Remote]  Summary "
+	"content": " Chapter 1 Basics Summary "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/requirements/",
 	"title": "Requirements",
 	"tags": [],
 	"description": "",
-	"content": " Requirements "
+	"content": " Requirements knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version This has to return a version \u0026gt; 8 or \u0026gt;1.8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/categories/",
