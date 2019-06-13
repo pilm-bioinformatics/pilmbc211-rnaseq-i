@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pilmbc211-rnaseq-i/images/favicon.png" type="image/png">
 
-    <title>Basics :: PILMBC103</title>
+    <title>Nextflow :: PILMBC103</title>
 
     
     <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560456342" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pilmbc211-rnaseq-i/basics/">
+  <body class="" data-url="/pilmbc211-rnaseq-i/basics/nextflow/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -115,7 +115,7 @@
     
     <li data-nav-id="/pilmbc211-rnaseq-i/basics/" title="Basics" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/pilmbc211-rnaseq-i/basics/">
@@ -169,8 +169,8 @@
   
     
     <li data-nav-id="/pilmbc211-rnaseq-i/basics/nextflow/" title="Nextflow" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/pilmbc211-rnaseq-i/basics/nextflow/">
@@ -391,7 +391,13 @@
             
           
           
-            <a href='/pilmbc211-rnaseq-i/'>PILMBC211</a> > Basics
+            
+            
+          
+          
+            <a href='/pilmbc211-rnaseq-i/'>PILMBC211</a> > <a href='/pilmbc211-rnaseq-i/basics/'>Basics</a> > Nextflow
+          
+         
           
          
           
@@ -407,9 +413,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Nextflow
+            </h1>
           
 
         
@@ -419,16 +428,103 @@
 
 	
 
-<h3 id="chapter-1">Chapter 1</h3>
+<p><a href="https://www.nextflow.io/">Nextflow</a> enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.</p>
 
-<p>You will find the requirements listed here and useful links to understand what is nextflow.</p>
+<p>Documentation: <a href="https://www.nextflow.io/docs/latest/index.html">https://www.nextflow.io/docs/latest/index.html</a></p>
 
-<h2 id="summary">Summary</h2>
+<p><a href="https://nf-co.re/">nf-core</a>: repository of <a href="https://nf-co.re/pipelines">pipelines</a></p>
+
+<h2 id="example-of-workflow">Example of workflow</h2>
+
+<pre><code>#!/usr/bin/env nextflow
+
+params.str = 'Hello world!'
+
+process splitLetters {
+
+    output:
+    file 'chunk_*' into letters mode flatten
+
+    &quot;&quot;&quot;
+    printf '${params.str}' | split -b 6 - chunk_
+    &quot;&quot;&quot;
+}
+
+
+process convertToUpper {
+
+    input:
+    file x from letters
+
+    output:
+    stdout result
+
+    &quot;&quot;&quot;
+    cat $x | tr '[a-z]' '[A-Z]'
+    &quot;&quot;&quot;
+}
+
+result.println { it.trim() }
+</code></pre>
+
+<h2 id="errors">Errors</h2>
+
+<p>Nextflow is the most user-friendly workflow to find out why something is not working.</p>
+
+<p>In a case of an error, you will see RED text with the error that the tool found.</p>
+
+<p>At the end, it will show the working directory, something like this:</p>
+
+<p><code>/om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f</code></p>
+
+<p>In that folder you will find the next important files:</p>
 
 <ul>
-<li>Understand nextflow</li>
-<li>Understand docker</li>
+<li><code>.command.sh</code>: the command that produced the error</li>
+<li><code>.command.our/err/log</code>: information related to the error</li>
 </ul>
+
+<p>This is an example of an error due to a file is corrupted:</p>
+
+<pre><code>SUMMARISING RUN PARAMETERS
+==========================
+Input filename: SRR9166086_D5_1.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.1
+Cutadapt version: 2.3
+Number of cores used for trimming: 1
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'CTGTCTCTTATA' (Nextera Transposase sequence; auto-detected)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Writing final adapter and quality trimmed output to SRR9166086_D5_1_trimmed.fq.gz
+
+
+  &gt;&gt;&gt; Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'CTGTCTCTTATA' from file SRR9166086_D5_1.fastq.gz &lt;&lt;&lt;
+10000000 sequences processed
+This is cutadapt 2.3 with Python 3.6.7
+Command line parameters: -j 1 -e 0.1 -q 20 -O 1 -a CTGTCTCTTATA SRR9166086_D5_1.fastq.gz
+Processing reads on 1 core in single-end mode ...
+cutadapt: error: Error in FASTQ file at line 64953264: Length of sequence and qualities differ
+
+
+Cutadapt terminated with exit signal: '256'.
+Terminating Trim Galore run, please check error message(s) to get an idea what went wrong...
+
+Work dir:
+/om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+-- Check '.nextflow.log' file for details
+</code></pre>
+
+<p>If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here:<a href="https://github.mit.edu/PILM-bioinformatics/support/issues">https://github.mit.edu/PILM-bioinformatics/support/issues</a></p>
 
 
 
@@ -438,8 +534,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -506,6 +600,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -524,6 +619,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -595,10 +693,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pilmbc211-rnaseq-i/" title="PILMBC211"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pilmbc211-rnaseq-i/basics/requirements/" title="Requirements"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pilmbc211-rnaseq-i/basics/requirements/" title="Requirements" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pilmbc211-rnaseq-i/nextflow-rnaseq/" title="nextflow-rnaseq" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -11,6 +11,26 @@
   </url>
   
   <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/nextflow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/pipeline/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/openmind/</loc>
+  </url>
+  
+  <url>
     <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/categories/</loc>
     <priority>0</priority>
   </url>

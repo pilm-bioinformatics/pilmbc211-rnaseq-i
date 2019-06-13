@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pilmbc211-rnaseq-i/images/favicon.png" type="image/png">
 
-    <title>Basics :: PILMBC103</title>
+    <title>RNAseq test :: PILMBC103</title>
 
     
     <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560456342" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pilmbc211-rnaseq-i/basics/">
+  <body class="" data-url="/pilmbc211-rnaseq-i/nextflow-rnaseq/test/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -114,8 +114,8 @@
   
     
     <li data-nav-id="/pilmbc211-rnaseq-i/basics/" title="Basics" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/pilmbc211-rnaseq-i/basics/">
@@ -202,7 +202,7 @@
   
     
     <li data-nav-id="/pilmbc211-rnaseq-i/nextflow-rnaseq/" title="nextflow-rnaseq" class="dd-item 
-        
+        parent
         
         
         ">
@@ -257,8 +257,8 @@
   
     
     <li data-nav-id="/pilmbc211-rnaseq-i/nextflow-rnaseq/test/" title="RNAseq test" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/pilmbc211-rnaseq-i/nextflow-rnaseq/test/">
@@ -391,7 +391,13 @@
             
           
           
-            <a href='/pilmbc211-rnaseq-i/'>PILMBC211</a> > Basics
+            
+            
+          
+          
+            <a href='/pilmbc211-rnaseq-i/'>PILMBC211</a> > <a href='/pilmbc211-rnaseq-i/nextflow-rnaseq/'>nextflow-rnaseq</a> > RNAseq test
+          
+         
           
          
           
@@ -407,9 +413,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              RNAseq test
+            </h1>
           
 
         
@@ -417,18 +426,17 @@
 
 
 
-	
+	<div class="notices warning"><p>
+This needs to have Docker and Nextflow installed
+</p></div>
 
-<h3 id="chapter-1">Chapter 1</h3>
+<ol>
+<li><p>Open to the terminal</p></li>
 
-<p>You will find the requirements listed here and useful links to understand what is nextflow.</p>
+<li><p><code>docker pull nfcore/rnaseq:dev</code></p></li>
 
-<h2 id="summary">Summary</h2>
-
-<ul>
-<li>Understand nextflow</li>
-<li>Understand docker</li>
-</ul>
+<li><p><code>nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test</code></p></li>
+</ol>
 
 
 
@@ -438,8 +446,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -471,59 +477,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -567,10 +522,68 @@
             
         
                     
+            
+        
+                    
                         
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -595,10 +608,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/pilmbc211-rnaseq-i/" title="PILMBC211"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/pilmbc211-rnaseq-i/nextflow-rnaseq/pipeline/" title="RNAseq pipeline"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/pilmbc211-rnaseq-i/basics/requirements/" title="Requirements" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/pilmbc211-rnaseq-i/nextflow-rnaseq/openmind/" title="RNAseq in Open Mind" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

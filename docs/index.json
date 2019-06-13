@@ -4,7 +4,7 @@
 	"title": "Basics",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 1 Basics Summary "
+	"content": " Chapter 1 You will find the requirements listed here and useful links to understand what is nextflow.\nSummary  Understand nextflow Understand docker  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/requirements/",
@@ -12,6 +12,41 @@
 	"tags": [],
 	"description": "",
 	"content": " knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version This has to return a version \u0026gt; 8 or \u0026gt;1.8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/nextflow/",
+	"title": "Nextflow",
+	"tags": [],
+	"description": "",
+	"content": " Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.\nDocumentation: https://www.nextflow.io/docs/latest/index.html\nnf-core: repository of pipelines\nExample of workflow #!/usr/bin/env nextflow params.str = 'Hello world!' process splitLetters { output: file 'chunk_*' into letters mode flatten \u0026quot;\u0026quot;\u0026quot; printf '${params.str}' | split -b 6 - chunk_ \u0026quot;\u0026quot;\u0026quot; } process convertToUpper { input: file x from letters output: stdout result \u0026quot;\u0026quot;\u0026quot; cat $x | tr '[a-z]' '[A-Z]' \u0026quot;\u0026quot;\u0026quot; } result.println { it.trim() }  Errors Nextflow is the most user-friendly workflow to find out why something is not working.\nIn a case of an error, you will see RED text with the error that the tool found.\nAt the end, it will show the working directory, something like this:\n/om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f\nIn that folder you will find the next important files:\n .command.sh: the command that produced the error .command.our/err/log: information related to the error  This is an example of an error due to a file is corrupted:\nSUMMARISING RUN PARAMETERS ========================== Input filename: SRR9166086_D5_1.fastq.gz Trimming mode: paired-end Trim Galore version: 0.6.1 Cutadapt version: 2.3 Number of cores used for trimming: 1 Quality Phred score cutoff: 20 Quality encoding type selected: ASCII+33 Adapter sequence: 'CTGTCTCTTATA' (Nextera Transposase sequence; auto-detected) Maximum trimming error rate: 0.1 (default) Minimum required adapter overlap (stringency): 1 bp Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp Running FastQC on the data once trimming has completed Output file(s) will be GZIP compressed Writing final adapter and quality trimmed output to SRR9166086_D5_1_trimmed.fq.gz \u0026gt;\u0026gt;\u0026gt; Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'CTGTCTCTTATA' from file SRR9166086_D5_1.fastq.gz \u0026lt;\u0026lt;\u0026lt; 10000000 sequences processed This is cutadapt 2.3 with Python 3.6.7 Command line parameters: -j 1 -e 0.1 -q 20 -O 1 -a CTGTCTCTTATA SRR9166086_D5_1.fastq.gz Processing reads on 1 core in single-end mode ... cutadapt: error: Error in FASTQ file at line 64953264: Length of sequence and qualities differ Cutadapt terminated with exit signal: '256'. Terminating Trim Galore run, please check error message(s) to get an idea what went wrong... Work dir: /om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh` -- Check '.nextflow.log' file for details  If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here:https://github.mit.edu/PILM-bioinformatics/support/issues\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/",
+	"title": "nextflow-rnaseq",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 2 You will learn to run a test data in your local computer.\nThe test data contains:\nInputs:\n 4 files from SCerevisiae genome FASTA genes GTF metadata (Optional)  Outputs:\n execution report execution timeline  Summary  Run a test pipeline within a docker container Run a test pipeline in Open Mind  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/pipeline/",
+	"title": "RNAseq pipeline",
+	"tags": [],
+	"description": "",
+	"content": "  Documentation: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/ Public dataset browser: https://ewels.github.io/sra-explorer/#  Scheme Pipeline Overview: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/output.html\nLogging Important parameters  --pseudo_aligner salmon: to run best practices for gene/transcript quantification --singleEnd: in case of not being paired dataset --aligner hisat2: to reduce the resources during alignment (if salmon is on) --skipGenebodyCoverage: long process that gives the same information than Qualimap --skipDupRadar: long process that gives similar information than Qualimap --skipPreseq: long process that gives similar information than Qualimap --skipRseQC: long process that gives similar information than Qualimap  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/test/",
+	"title": "RNAseq test",
+	"tags": [],
+	"description": "",
+	"content": " This needs to have Docker and Nextflow installed   Open to the terminal\n docker pull nfcore/rnaseq:dev\n nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test\n  "
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/openmind/",
+	"title": "RNAseq in Open Mind",
+	"tags": [],
+	"description": "",
+	"content": "  This needs to have an account in OpenMind   Open to the terminal\n ssh username@openmind7.mit.edu\n cd /om/user/username\n mkdir rnaseq-pilm211\n cd rnaseq-pilm211\n ls /om/group/pilm/test_data/mouse\n cp /om2/group/pilm/master-scripts/pipelines-nf-rnaseq/* . and cp /om2/group/pilm/master-scripts/config/om-profile.config .\n vim om-job.slurm\n  modify the line to look like this: (remove the # character to uncomment the line and it actually runs)\n#!/bin/bash #SBATCH -N 1 #SBATCH -c 1 #SBATCH --mem=4000 #SBATCH -t 0-23:00:00 #SBATCH -J \u0026quot;rnaseq\u0026quot; #SBATCH -e job.e #SBATCH -o job.o ## SBATCH --mail-type=END,FAIL # this line is commented ## SBATCH --mail-user=user@mit.edu # this line is commented export PATH=/om2/group/pilm/conda3/envs/nf-core-rnaseq-1.4dev/bin:$PATH export PATH=/om2/group/pilm/bin:$PATH if [ ! -f \u0026quot;om-profile.config\u0026quot; ] ; then cp /om2/group/pilm/master-scripts/config/om-profile.config . fi if [ ! -f \u0026quot;om-rnaseq\u0026quot; ] ; then cp /om2/group/pilm/master-scripts/pipelines-nf-rnaseq/om-rnaseq.config . fi ## Example pipeline GENOME=/om/group/pilm/genomes/Mmusculus/GRCm38.96/GRCm38.96.config #GENOME=/om/group/pilm/genomes/Mmusculus/GRCh38.96/GRCh38.96.config # Add --singleEnd if true # nextflow run /om2/group/pilm/pipelines/dev/pipelines-nf-rnaseq -c om-profile.config -c om-rnaseq.config -c $GENOME --reads \u0026quot;/om/group/pilm/test_data/mouse/*_{1,2}.fastq.gz\u0026quot; -resume  Default parameters General executor { queueSize=24 } process { // Global process config executor = 'slurm' // queue = 'ikmb_a' cpus = 6 // clusterOptions = { \u0026quot;--qos=ikmb_a\u0026quot; } }  RNAseq params { // illumina iGenomes reference file paths on RZCluster igenomes_base = '/om/group/pilm/genomes' skipRseQC = true skipGenebodyCoverage = true skipPreseq = true skipDupRadar = true aligner = 'hisat2' pseudo_aligner = 'salmon' }  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/categories/",
@@ -32,7 +67,7 @@
 	"title": "PILMBC211",
 	"tags": [],
 	"description": "",
-	"content": " Requirements knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version This has to return a version \u0026gt; 8 or \u0026gt;1.8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  Agenda  1:30-1:55 Introduction to vim handons: modify files in the terminal (mandatory if you don\u0026rsquo;t know this) 2:00-2:25 Best practices for RNAseq analysis lecture 2:30-3:50 Running an example in the local computer handons 3:00-3:30 Running an example in OpenMind cluster handons: you need to be part of the cluster  millerlab : Jefferson Roy surlab: Ming Hu tsailab: Lorena Pantano    You are welcome to stay during the whole session even if you don\u0026rsquo;t want/can\u0026rsquo;t to follow the handons materials.\nGoal  Best practices on choosing the right tool How to process FASTQ files from RNAseq experiments Run a test data analysis in your computer or/and the Open Mind cluster  Angels If you see you can help others during the workshop, please do, it will improve the dynamic.\nContributors Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc211-rnaseq-i\n"
+	"content": " Requirements knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version This has to return a version \u0026gt; 8 or \u0026gt;1.8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  Agenda  1:30-1:55 Introduction to vim hands-on: modify files in the terminal (mandatory if you don\u0026rsquo;t know this) 2:00-2:25 Best practices for RNAseq analysis lecture 2:30-3:50 Running an example in the local computer hands-on 3:00-3:30 Running an example in OpenMind cluster hand-on: you need to be part of the cluster, contact your representative:  millerlab : Jefferson Roy surlab: Ming Hu tsailab: Lorena Pantano    You are welcome to stay during the whole session even if you don\u0026rsquo;t want/can\u0026rsquo;t to follow the hands-on materials.\nGoal  Best practices on choosing the right tool How to process FASTQ files from RNAseq experiments Run a test data analysis in your computer or/and the Open Mind cluster  Angels If you see you can help others during the workshop, please do, it will improve the dynamic.\nContributors Happy to accept corrections at: https://github.com/pilm-bioinformatics/pilmbc211-rnaseq-i\n"
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/tags/",
