@@ -12,20 +12,20 @@
     <title>RNAseq test :: PILMBC103</title>
 
     
-    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560456342" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560711437" rel="stylesheet">
     
-      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560456342" rel="stylesheet">
+      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560711437" rel="stylesheet">
     
 
-    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560711437"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560456342"></script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560711437"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560711437"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc211-rnaseq-i\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560711437"></script>
 
     
   </div>
@@ -426,17 +426,27 @@
 
 
 
-	<div class="notices warning"><p>
+	
+
+<div class="notices warning"><p>
 This needs to have Docker and Nextflow installed
 </p></div>
 
 <ol>
-<li><p>Open to the terminal</p></li>
+<li><p>Start docker app and open the terminal</p></li>
 
-<li><p><code>docker pull nfcore/rnaseq:dev</code></p></li>
+<li><p><code>docker pull nfcore/rnaseq:dev</code> this will download the software container</p></li>
 
-<li><p><code>nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test</code></p></li>
+<li><p><code>nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test</code> this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.</p></li>
 </ol>
+
+<h3 id="container-definition">Container definition</h3>
+
+<p>What software container to use is defined inside <code>nextflow.config</code> in the variable: <code>process.container = 'nfcore/rnaseq:dev'</code>.</p>
+
+<div class="notices note"><p>
+Nextflow will download by itself the software container if it is not installed.
+</p></div>
 
 
 
@@ -621,20 +631,20 @@ This needs to have Docker and Nextflow installed
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560711437"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560711437"></script>
 
-    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560456342" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560456342"></script>
+    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560711437" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560711437"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -8,7 +8,7 @@ disableToc: true
 This needs to have an account in OpenMind
 {{% /notice %}}
 
-1. Open to the terminal
+1. Open the terminal
 
 2. `ssh username@openmind7.mit.edu`
 
@@ -53,12 +53,16 @@ GENOME=/om/group/pilm/genomes/Mmusculus/GRCm38.96/GRCm38.96.config
 #GENOME=/om/group/pilm/genomes/Mmusculus/GRCh38.96/GRCh38.96.config
 
 # Add --singleEnd if true
-# nextflow run /om2/group/pilm/pipelines/dev/pipelines-nf-rnaseq -c om-profile.config -c om-rnaseq.config -c $GENOME  --reads "/om/group/pilm/test_data/mouse/*_{1,2}.fastq.gz" -resume
+nextflow run /om2/group/pilm/pipelines/dev/pipelines-nf-rnaseq -c om-profile.config -c om-rnaseq.config -c $GENOME  --reads "/om/group/pilm/test_data/mouse/*_{1,2}.fastq.gz" -resume
 ```
 
 ## Default parameters
 
+The PILM pipeline runs under some default parameters in the following files.
+
 ### General
+
+`om-profile.config`
 
 ```
 executor {
@@ -69,18 +73,22 @@ process {
 
   // Global process config
   executor = 'slurm'
-  // queue = 'ikmb_a'
+  // queue = ''
   cpus = 6
-  // clusterOptions = { "--qos=ikmb_a" }
+  // clusterOptions = { "--qos=" }
 
 }
 ```
 
+* `queueSize` is the number of jobs running at the same time.
+* `cpus` the number of cores by default to use by process
+
 ### RNAseq
+
+`om-rnaseq.config`
 
 ```
 params {
-  // illumina iGenomes reference file paths on RZCluster
   igenomes_base = '/om/group/pilm/genomes'
   skipRseQC = true
   skipGenebodyCoverage = true

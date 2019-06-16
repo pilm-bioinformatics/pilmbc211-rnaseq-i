@@ -12,20 +12,20 @@
     <title>Nextflow :: PILMBC103</title>
 
     
-    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560456342" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560711437" rel="stylesheet">
     
-      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560456342" rel="stylesheet">
+      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560711437" rel="stylesheet">
     
 
-    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560711437"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560456342"></script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560711437"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560711437"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc211-rnaseq-i\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560711437"></script>
 
     
   </div>
@@ -471,13 +471,13 @@ result.println { it.trim() }
 
 <p>Nextflow is the most user-friendly workflow to find out why something is not working.</p>
 
-<p>In a case of an error, you will see RED text with the error that the tool found.</p>
+<p>In a case of an error, you will see RED text with the error that the tool produced.</p>
 
 <p>At the end, it will show the working directory, something like this:</p>
 
 <p><code>/om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f</code></p>
 
-<p>In that folder you will find the next important files:</p>
+<p>In that folder you will find the most important files:</p>
 
 <ul>
 <li><code>.command.sh</code>: the command that produced the error</li>
@@ -524,7 +524,13 @@ Tip: you can try to figure out what's wrong by changing to the process work dir 
 -- Check '.nextflow.log' file for details
 </code></pre>
 
-<p>If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here:<a href="https://github.mit.edu/PILM-bioinformatics/support/issues">https://github.mit.edu/PILM-bioinformatics/support/issues</a></p>
+<p>A way to reproduce the error is to run yourself the command is giving an issue:</p>
+
+<pre><code>cd /om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f
+bash .command.sh
+</code></pre>
+
+<p>If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here: <a href="https://github.mit.edu/PILM-bioinformatics/support/issues">https://github.mit.edu/PILM-bioinformatics/support/issues</a></p>
 
 
 
@@ -706,20 +712,20 @@ Tip: you can try to figure out what's wrong by changing to the process work dir 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560711437"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560711437"></script>
 
-    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560456342" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560456342"></script>
+    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560711437" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560711437"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,20 +12,20 @@
     <title>RNAseq in Open Mind :: PILMBC103</title>
 
     
-    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560456342" rel="stylesheet">
-    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560456342" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/nucleus.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/fontawesome-all.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hybrid.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/featherlight.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/perfect-scrollbar.min.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/auto-complete.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/atom-one-dark-reasonable.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/theme.css?1560711437" rel="stylesheet">
+    <link href="/pilmbc211-rnaseq-i/css/hugo-theme.css?1560711437" rel="stylesheet">
     
-      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560456342" rel="stylesheet">
+      <link href="/pilmbc211-rnaseq-i/css/theme-blue.css?1560711437" rel="stylesheet">
     
 
-    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery-3.3.1.min.js?1560711437"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -90,14 +90,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560456342"></script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/lunr.min.js?1560711437"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/auto-complete.js?1560711437"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/pilm-bioinformatics.github.io\/pilmbc211-rnaseq-i\/";
     
 </script>
-<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560456342"></script>
+<script type="text/javascript" src="/pilmbc211-rnaseq-i/js/search.js?1560711437"></script>
 
     
   </div>
@@ -433,7 +433,7 @@ This needs to have an account in OpenMind
 </p></div>
 
 <ol>
-<li><p>Open to the terminal</p></li>
+<li><p>Open the terminal</p></li>
 
 <li><p><code>ssh username@openmind7.mit.edu</code></p></li>
 
@@ -478,12 +478,16 @@ GENOME=/om/group/pilm/genomes/Mmusculus/GRCm38.96/GRCm38.96.config
 #GENOME=/om/group/pilm/genomes/Mmusculus/GRCh38.96/GRCh38.96.config
 
 # Add --singleEnd if true
-# nextflow run /om2/group/pilm/pipelines/dev/pipelines-nf-rnaseq -c om-profile.config -c om-rnaseq.config -c $GENOME  --reads &quot;/om/group/pilm/test_data/mouse/*_{1,2}.fastq.gz&quot; -resume
+nextflow run /om2/group/pilm/pipelines/dev/pipelines-nf-rnaseq -c om-profile.config -c om-rnaseq.config -c $GENOME  --reads &quot;/om/group/pilm/test_data/mouse/*_{1,2}.fastq.gz&quot; -resume
 </code></pre>
 
 <h2 id="default-parameters">Default parameters</h2>
 
+<p>The PILM pipeline runs under some default parameters in the following files.</p>
+
 <h3 id="general">General</h3>
+
+<p><code>om-profile.config</code></p>
 
 <pre><code>executor {
   queueSize=24
@@ -493,17 +497,23 @@ process {
 
   // Global process config
   executor = 'slurm'
-  // queue = 'ikmb_a'
+  // queue = ''
   cpus = 6
-  // clusterOptions = { &quot;--qos=ikmb_a&quot; }
+  // clusterOptions = { &quot;--qos=&quot; }
 
 }
 </code></pre>
 
+<ul>
+<li><code>queueSize</code> is the number of jobs running at the same time.</li>
+<li><code>cpus</code> the number of cores by default to use by process</li>
+</ul>
+
 <h3 id="rnaseq">RNAseq</h3>
 
+<p><code>om-rnaseq.config</code></p>
+
 <pre><code>params {
-  // illumina iGenomes reference file paths on RZCluster
   igenomes_base = '/om/group/pilm/genomes'
   skipRseQC = true
   skipGenebodyCoverage = true
@@ -694,20 +704,20 @@ process {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/clipboard.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/perfect-scrollbar.jquery.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/jquery.sticky.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/featherlight.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/html5shiv-printshiv.min.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/highlight.pack.js?1560711437"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560456342"></script>
-    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560456342"></script>
+    <script src="/pilmbc211-rnaseq-i/js/modernizr.custom-3.6.0.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/learn.js?1560711437"></script>
+    <script src="/pilmbc211-rnaseq-i/js/hugo-learn.js?1560711437"></script>
 
-    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560456342" type="text/css" rel="stylesheet" />
-    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560456342"></script>
+    <link href="/pilmbc211-rnaseq-i/mermaid/mermaid.css?1560711437" type="text/css" rel="stylesheet" />
+    <script src="/pilmbc211-rnaseq-i/mermaid/mermaid.js?1560711437"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

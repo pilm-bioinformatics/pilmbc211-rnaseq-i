@@ -48,13 +48,13 @@ result.println { it.trim() }
 
 Nextflow is the most user-friendly workflow to find out why something is not working.
 
-In a case of an error, you will see RED text with the error that the tool found.
+In a case of an error, you will see RED text with the error that the tool produced.
 
 At the end, it will show the working directory, something like this:
 
 `/om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f`
 
-In that folder you will find the next important files:
+In that folder you will find the most important files:
 
 * `.command.sh`: the command that produced the error
 * `.command.our/err/log`: information related to the error
@@ -100,4 +100,11 @@ Tip: you can try to figure out what's wrong by changing to the process work dir 
 -- Check '.nextflow.log' file for details
 ```
 
-If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here:https://github.mit.edu/PILM-bioinformatics/support/issues
+A way to reproduce the error is to run yourself the command is giving an issue:
+
+```
+cd /om/user/lpantano/test-pilm211/work/1a/2556d7bc7ff6773c41d37968e13f5f
+bash .command.sh
+```
+
+If you run any of our pipelines or nf-core pipelines and you find an error, please submit an issue first here: https://github.mit.edu/PILM-bioinformatics/support/issues

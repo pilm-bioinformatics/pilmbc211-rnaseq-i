@@ -20,6 +20,7 @@ Inputs:
 
 Outputs:
 
+- QC metrics and expression files
 - execution report
 - execution timeline
 
