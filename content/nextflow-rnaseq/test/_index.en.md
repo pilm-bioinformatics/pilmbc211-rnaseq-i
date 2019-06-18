@@ -22,3 +22,5 @@ What software container to use is defined inside `nextflow.config` in the variab
 {{% notice note %}}
 Nextflow will download by itself the software container if it is not installed.
 {{% /notice%}}
+
+What test to run is defined in the file `conf/test.config`.

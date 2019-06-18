@@ -14,6 +14,20 @@
 	"content": " knowledge  PILMBC 103: https://pilm-bioinformatics.github.io/pilmbc103-remote-storage-and-computing/ What is RNAseq: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/  Software  Docker: https://docs.docker.com/v17.12/install/ nexflow: In the terminal do this:\njava -version This has to return a version \u0026gt; 8 or \u0026gt;1.8\ncurl -s https://get.nextflow.io | bash\n./nextflow run hello\n  "
 },
 {
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/vim/",
+	"title": "Vim",
+	"tags": [],
+	"description": "",
+	"content": " A better tutorial with more explanation.\nImportant features of the editor It has three modes:\n insert: to write/modify the content visual: to inspect/select the content command: to tell the editor what to do: save, quit, undo \u0026hellip;  Quick workflow to create/modify files In a terminal:\n type vim file.txt to create a file named as file.txt press i to enter in insert mode write my first vim press ESC to exit insert mode press : to enter in command mode to tell vim what to do type wq to save and quit  type rm file.txt to remove the file.\n"
+},
+{
+	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/docker/",
+	"title": "Docker",
+	"tags": [],
+	"description": "",
+	"content": " Docker is a platform for developers and sysadmins to:\n develop deploy run applications with containers  The use of Linux containers to deploy applications is called containerization.\n Containers are not new, but their use for easily deploying applications is.\n Docker is defined as a light containerization because it doesn\u0026rsquo;t need to fully reproduce a machine to work.\nHub of Containers Dockerhub host a public and private space to share these containers (images) with specific tools already installed.\n"
+},
+{
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/nextflow/",
 	"title": "Nextflow",
 	"tags": [],
@@ -32,14 +46,14 @@
 	"title": "RNAseq pipeline",
 	"tags": [],
 	"description": "",
-	"content": "  Documentation: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/ Public dataset browser: https://ewels.github.io/sra-explorer/#  Scheme Pipeline Overview: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/output.html\nLogging Important parameters Some parameters that have an important impact to the computer resources requirements and time execution.\n --pseudo_aligner salmon: to run best practices for gene/transcript quantification --singleEnd: in case of not being paired dataset --aligner hisat2: to reduce the resources during alignment (if salmon is on) --skipGenebodyCoverage: long process that gives the same information than Qualimap --skipDupRadar: long process that gives similar information than Qualimap --skipPreseq: long process that gives similar information than Qualimap --skipRseQC: long process that gives similar information than Qualimap  All parameters are defined at nextflow.config\nReports  output explanation execution_timeline.html execution_report.html results_description.html software_versions.csv  "
+	"content": "  Source code: https://github.com/pilm-bioinformatics/pipelines-nf-rnaseq Documentation: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/ Public dataset browser: https://ewels.github.io/sra-explorer/#  Scheme Pipeline Overview: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/output.html\n The pipeline is defined in the main.nf file The config files are defined in: nextflow.config and all the files in the conf folder.  Logging Important parameters Some parameters that have an important impact to the computer resources requirements and time execution.\n --pseudo_aligner salmon: to run best practices for gene/transcript quantification --singleEnd: in case of not being paired dataset --aligner hisat2: to reduce the resources during alignment (if salmon is on) --skipGenebodyCoverage: long process that gives the same information than Qualimap --skipDupRadar: long process that gives similar information than Qualimap --skipPreseq: long process that gives similar information than Qualimap --skipRseQC: long process that gives similar information than Qualimap  All parameters are defined at nextflow.config\nReports  output explanation execution_timeline.html execution_report.html results_description.html software_versions.csv  "
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/test/",
 	"title": "RNAseq test",
 	"tags": [],
 	"description": "",
-	"content": "  This needs to have Docker and Nextflow installed   Start docker app and open the terminal\n docker pull nfcore/rnaseq:dev this will download the software container\n nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.\n  Container definition What software container to use is defined inside nextflow.config in the variable: process.container = 'nfcore/rnaseq:dev'.\n Nextflow will download by itself the software container if it is not installed.  "
+	"content": "  This needs to have Docker and Nextflow installed   Start docker app and open the terminal\n docker pull nfcore/rnaseq:dev this will download the software container\n nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.\n  Container definition What software container to use is defined inside nextflow.config in the variable: process.container = 'nfcore/rnaseq:dev'.\n Nextflow will download by itself the software container if it is not installed.  What test to run is defined in the file conf/test.config.\n"
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/openmind/",

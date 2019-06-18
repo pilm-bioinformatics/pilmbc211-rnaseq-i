@@ -11,6 +11,14 @@
   </url>
   
   <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/vim/</loc>
+  </url>
+  
+  <url>
+    <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/docker/</loc>
+  </url>
+  
+  <url>
     <loc>https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/basics/nextflow/</loc>
   </url>
   

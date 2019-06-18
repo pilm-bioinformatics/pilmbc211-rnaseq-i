@@ -4,6 +4,7 @@ weight: 25
 disableToc: true
 ---
 
+* Source code: https://github.com/pilm-bioinformatics/pipelines-nf-rnaseq
 * Documentation: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/
 * Public dataset browser: https://ewels.github.io/sra-explorer/#
 
@@ -13,6 +14,8 @@ Pipeline Overview: https://pilm-bioinformatics.github.io/pipelines-nf-rnaseq/out
 
 ![](pipeline_dag.png)
 
+* The pipeline is defined in the `main.nf` file
+* The config files are defined in: `nextflow.config` and all the files in the `conf` folder.
 
 ## Logging
 

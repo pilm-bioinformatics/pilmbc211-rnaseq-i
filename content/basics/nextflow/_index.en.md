@@ -1,6 +1,6 @@
 ---
 title: Nextflow
-weight: 15
+weight: 20
 disableToc: true
 ---
 
