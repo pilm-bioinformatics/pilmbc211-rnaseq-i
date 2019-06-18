@@ -12,7 +12,9 @@ This needs to have Docker and Nextflow installed
 
 2. `docker pull nfcore/rnaseq:dev` this will download the software container
 
-3. `nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test` this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.
+3. `./nextflow pull pilm-bioinformatics/pipelines-nf-rnaseq -r master`
+
+4. `./nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test` this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.
 
 
 ### Container definition

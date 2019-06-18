@@ -53,7 +53,7 @@
 	"title": "RNAseq test",
 	"tags": [],
 	"description": "",
-	"content": "  This needs to have Docker and Nextflow installed   Start docker app and open the terminal\n docker pull nfcore/rnaseq:dev this will download the software container\n nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.\n  Container definition What software container to use is defined inside nextflow.config in the variable: process.container = 'nfcore/rnaseq:dev'.\n Nextflow will download by itself the software container if it is not installed.  What test to run is defined in the file conf/test.config.\n"
+	"content": "  This needs to have Docker and Nextflow installed   Start docker app and open the terminal\n docker pull nfcore/rnaseq:dev this will download the software container\n ./nextflow pull pilm-bioinformatics/pipelines-nf-rnaseq -r master\n ./nextflow run pilm-bioinformatics/pipelines-nf-rnaseq -profile docker,test this run the pipeline with the software container we have defined previously and the test data defined by the pipeline.\n  Container definition What software container to use is defined inside nextflow.config in the variable: process.container = 'nfcore/rnaseq:dev'.\n Nextflow will download by itself the software container if it is not installed.  What test to run is defined in the file conf/test.config.\n"
 },
 {
 	"uri": "https://pilm-bioinformatics.github.io/pilmbc211-rnaseq-i/nextflow-rnaseq/openmind/",
